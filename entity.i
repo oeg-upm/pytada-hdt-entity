@@ -1,13 +1,18 @@
-// tnode.i - SWIG interface
+// entity.i - SWIG interface
 %module entity
 %include "std_string.i"
 %include "std_unordered_map.i"
 %include "std_list.i"
-%include "hdt.i"
+%include "cpointer.i"
 %{
-#include <HDTManager.hpp>
-#include <easy_logger/easy_logger.h>
 #include "entity.h"
+#include "caster.h"
 %}
 // Parse the original header file
 %include "entity.h"
+%include "caster.h"
+
+%template(MyObjectVector) std::list<string>;
+%typemap(out) string {
+   $result = SWIG_NewPointerObj($1, SWIGTYPE_p_string, 0);
+}
