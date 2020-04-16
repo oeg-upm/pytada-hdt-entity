@@ -2,14 +2,41 @@ from invoke import task
 
 import os
 project_dir = os.environ['project_dir']
-base_url = "/Users/aalobaid/workspaces/Cworkspace/tada-hdt-entity"
 
 @task
 def copy(c):
-    files = ["tnode.cpp", "tnode.h", "graph.cpp", "graph.h"]
+    files = ["tnode.cpp", "tnode.h", "graph.cpp", "graph.h", "entity.cpp", "entity.h"]
     for f in files:
         fdir = os.path.join(project_dir, f)
         c.run("cp %s ./" % fdir)
+
+
+@task
+def parser(c):
+    fname = "parser"
+    cpp_name = "parser.cpp"
+    comm = "swig -c++ -python %s.i ; " % fname
+    comm += "g++ -O2 -std=c++11 -fPIC -c %s  ;" % cpp_name
+    comm += "g++ -c -std=c++11 -fpic %s_wrap.cxx -I/usr/include/python2.7  -I .  `python-config --include`   ; " % fname
+    comm += "g++ -lpython -std=c++11 -dynamiclib  %s.o %s_wrap.o -o _%s.so -leasylogger  -ltabularparser -pthread ;" % (fname, fname, fname)
+    comm += "python %s_test.py " % (fname)
+    print("command: ")
+    print(comm)
+    c.run(comm)
+
+
+@task
+def entity(c):
+    fname = "entity"
+    cpp_name = "entity.cpp"
+    comm = "swig -c++ -python %s.i ; " % fname
+    comm += "g++ -O2 -std=c++11 -fPIC -c %s  ;" % cpp_name
+    comm += "g++ -c -std=c++11 -fpic %s_wrap.cxx -I/usr/include/python2.7  -I .  `python-config --include`   ; " % fname
+    comm += "g++ -lpython -std=c++11 -dynamiclib  %s.o %s_wrap.o -o _%s.so -leasylogger -ltadahdtentity -lhdt -ltabularparser -pthread ;" % (fname, fname, fname)
+    comm += "python %s_test.py " % (fname)
+    print("command: ")
+    print(comm)
+    c.run(comm)
 
 
 @task
@@ -23,7 +50,6 @@ g++ -lpython -dynamiclib -flat_namespace tnode.o tnode_wrap.o -o _tnode.so
 
     fname = "graph"
     cpp_name = "graph.cpp"
-    extension_name = "graph.so"
     comm = "swig -c++ -python %s.i ; " % fname
     comm += "g++ -O2 -std=c++11 -fPIC -c %s  ;" % cpp_name
     comm += "g++ -c -std=c++11 -fpic %s_wrap.cxx -I/usr/include/python2.7  -I .  `python-config --include`   ; " % fname
