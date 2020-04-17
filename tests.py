@@ -1,7 +1,10 @@
 import unittest
-import entity
-from entity import EntityAnn
-from parser import Parser
+from tada_hdt_entity.entity import EntityAnn
+from tada_hdt_entity.parser import Parser
+
+# import entity
+# from entity import EntityAnn
+# from parser import Parser
 
 hdt_file = "test.hdt"
 log_file = "tests.log"

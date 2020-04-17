@@ -81,7 +81,7 @@ tnode_module = Extension('_tnode',
                     sources = ['tnode.cpp', 'tnode_wrap.cxx'])
 
 
-graph_module = Extension('tada_hdt_entity._graph',
+graph_module = Extension('_graph',
                     include_dirs = ['.'],
                     libraries = ['hdt','easylogger','tadahdtentity','tabularparser'],
                      extra_compile_args=['-std=c++11'],
@@ -89,8 +89,6 @@ graph_module = Extension('tada_hdt_entity._graph',
 
 
 parser_module = Extension('_parser',
-                    define_macros = [('MAJOR_VERSION', '1'),
-                                     ('MINOR_VERSION', '0')],
                     include_dirs = ['.'],
                     libraries = ['tabularparser'],
                      extra_compile_args=['-std=c++11'],
@@ -98,10 +96,10 @@ parser_module = Extension('_parser',
 
 
 modules = [
-       parser_module,
-        tnode_module,
-       graph_module,
-       entity_module
+    parser_module,
+    tnode_module,
+    graph_module,
+    entity_module
 ]
 
 setup (name = 'tada_hdt_entity',
@@ -113,7 +111,7 @@ setup (name = 'tada_hdt_entity',
        long_description = '''This package is to label entity columns in CSV files using a given HDT file''',
        ext_modules = modules,
        # py_modules = ["entity","graph","tnode","parser"],
-       # packages=['tada_hdt_entity'],
+       packages=['tada_hdt_entity'],
        ext_package='tada_hdt_entity',
        # provides="tada_hdt_entity"
-       )
+)
