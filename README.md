@@ -2,6 +2,10 @@
 A python library binding of the c++ library `tada-hdt-entity`
 
 
+# Install via pip
+```
+pip install git+https://github.com/oeg-upm/pytada-hdt-entity.git
+```
 
 # To build and install
 ```
