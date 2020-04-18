@@ -1,6 +1,5 @@
 *.index.v1-1
 *.hdt
-*_wrap.cxx
 *.o
 *.qbs.user
 *.qbs
