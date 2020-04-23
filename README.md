@@ -1,4 +1,7 @@
 # pytada-hdt-entity
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3764190.svg)](https://doi.org/10.5281/zenodo.3764190)
+
 A python library binding of the c++ library `tada-hdt-entity`
 
 
@@ -34,3 +37,18 @@ use the debian script but update it with the equivalent command to install prere
 3. tabular_parser lib
 4. easy_logger lib
 5. tada_hdt_entity lib
+
+
+# To cite
+```
+@software{alobaid_ahmad_2020_3764190,
+  author       = {Alobaid, Ahmad and
+                  Corcho, Oscar},
+  title        = {pytada-hdt-entity},
+  month        = apr,
+  year         = 2020,
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.3764190},
+  url          = {https://doi.org/10.5281/zenodo.3764190}
+}
+```
