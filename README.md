@@ -15,7 +15,7 @@ python setup.py install
 
 # Install prerequisites via a script
 * For debian and ubuntu: 
-[install-script](https://github.com/oeg-upm/tada-hdt-entity-experiment/blob/master/scripts/setup.sh)
+[install-script](https://github.com/oeg-upm/tada-web/blob/master/setup.sh)
 * For other linux distro and macOS: 
 use the debian script but update it with the equivalent command to install prerequisite packages
 
