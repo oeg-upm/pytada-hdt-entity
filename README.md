@@ -20,12 +20,6 @@ python setup.py install
 use the debian script but update it with the equivalent command to install prerequisite packages
 
 
-# Prerequisites to build (from source)
-1. SWIG (to handle .i files)
-2. HDT lib
-3. tabular_parser lib
-4. easy_logger lib
-5. tada_hdt_entity lib
 
 # Prerequisites to install
 1. HDT lib
@@ -33,3 +27,10 @@ use the debian script but update it with the equivalent command to install prere
 3. easy_logger lib
 4. tada_hdt_entity lib
 
+
+# Prerequisites to build (from source)
+1. SWIG (to handle .i files)
+2. HDT lib
+3. tabular_parser lib
+4. easy_logger lib
+5. tada_hdt_entity lib
