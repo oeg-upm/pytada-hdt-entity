@@ -8,7 +8,9 @@ def copy(c):
     files = ["tnode.cpp", "tnode.h", "graph.cpp", "graph.h", "entity.cpp", "entity.h"]
     for f in files:
         fdir = os.path.join(project_dir, f)
-        c.run("cp %s ./" % fdir)
+	comm = "cp -f %s ./" % fdir
+	print(comm)
+        c.run(comm)
 
 
 @task

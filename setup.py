@@ -103,7 +103,7 @@ modules = [
 ]
 
 setup (name = 'tada_hdt_entity',
-       version = '1.5',
+       version = '1.7',
        description = 'This package is a wrapper of tada_hdt_library',
        author = 'Ahmad Alobaid',
        author_email = 'aalobaid@fi.upm.es',

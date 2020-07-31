@@ -16,13 +16,30 @@ python setup.py build_ext --inplace
 python setup.py install
 ```
 
+
 # Install prerequisites via a script
 * For debian and ubuntu: 
 [install-script](https://github.com/oeg-upm/tada-web/blob/master/setup.sh)
 * For other linux distro and macOS: 
 use the debian script but update it with the equivalent command to install prerequisite packages
 
-
+# To update the python library (from the updated c++ source code library)
+1. You need to setup the following environment variables:
+	* `export project_dir='.'`  (or the directory of the c++ source code)
+	* `export LC_ALL=en_US.UTF-8` (needed for mac)
+	* `export LANG=en_US.UTF-8` (needed for mac)
+1. Generate the interface files:
+	* `invoke copy` (only if you need to copy the source files to the current folder. If you copy the c++ files to this directory, you do not need to do it).
+	* `invoke parser`
+	* `invoke tnode`
+	* `invoke graph`
+	* `invoke entity`  
+1. Copy the python files into the package:
+	* `cp parser.py tada_hdt_entity/`
+	* `cp tnode.py tada_hdt_entity/`
+	* `cp graph.py tada_hdt_entity/`
+	* `cp entity.py tada_hdt_entity/`
+	
 
 # Prerequisites to install
 1. HDT lib

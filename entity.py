@@ -128,6 +128,7 @@ class EntityAnn(object):
 
     def __init__(self, *args):
         _entity.EntityAnn_swiginit(self, _entity.new_EntityAnn(*args))
+    __swig_destroy__ = _entity.delete_EntityAnn
 
     def setHDT(self, arg2):
         return _entity.EntityAnn_setHDT(self, arg2)
@@ -248,10 +249,9 @@ class EntityAnn(object):
 
     def get_properties_from_map(self):
         return _entity.EntityAnn_get_properties_from_map(self)
-    rdf_type = property(_entity.EntityAnn_rdf_type_get)
-    rdfs_subclassof = property(_entity.EntityAnn_rdfs_subclassof_get)
-    rdfs_label = property(_entity.EntityAnn_rdfs_label_get)
-    __swig_destroy__ = _entity.delete_EntityAnn
+    type_uri = property(_entity.EntityAnn_type_uri_get, _entity.EntityAnn_type_uri_set)
+    subclassof_uri = property(_entity.EntityAnn_subclassof_uri_get, _entity.EntityAnn_subclassof_uri_set)
+    label_uri = property(_entity.EntityAnn_label_uri_get, _entity.EntityAnn_label_uri_set)
 
 # Register EntityAnn in _entity:
 _entity.EntityAnn_swigregister(EntityAnn)
