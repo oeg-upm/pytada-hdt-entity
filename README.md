@@ -39,7 +39,7 @@ use the debian script but update it with the equivalent command to install prere
 	* `cp tnode.py tada_hdt_entity/`
 	* `cp graph.py tada_hdt_entity/`
 	* `cp entity.py tada_hdt_entity/`
-	
+1. Update `setup.py` with the new version of the library	
 
 # Prerequisites to install
 1. HDT lib

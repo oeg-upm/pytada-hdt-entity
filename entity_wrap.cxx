@@ -2673,10 +2673,11 @@ SWIGINTERN PyObject *SWIG_PyStaticMethod_New(PyObject *SWIGUNUSEDPARM(self), PyO
 #define SWIGTYPE_p_std__invalid_argument swig_types[10]
 #define SWIGTYPE_p_std__listT_std__listT_std__string_std__allocatorT_std__string_t_t_p_std__allocatorT_std__listT_std__string_std__allocatorT_std__string_t_t_p_t_t swig_types[11]
 #define SWIGTYPE_p_std__listT_std__string_std__allocatorT_std__string_t_t swig_types[12]
-#define SWIGTYPE_p_swig__SwigPyIterator swig_types[13]
-#define SWIGTYPE_p_value_type swig_types[14]
-static swig_type_info *swig_types[16];
-static swig_module_info swig_module = {swig_types, 15, 0, 0, 0, 0};
+#define SWIGTYPE_p_std__unordered_mapT_std__string_bool_std__hashT_std__string_t_std__equal_toT_std__string_t_std__allocatorT_std__pairT_std__string_const_bool_t_t_t swig_types[13]
+#define SWIGTYPE_p_swig__SwigPyIterator swig_types[14]
+#define SWIGTYPE_p_value_type swig_types[15]
+static swig_type_info *swig_types[17];
+static swig_module_info swig_module = {swig_types, 16, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3488,14 +3489,6 @@ SWIG_AsVal_bool (PyObject *obj, bool *val)
   #define SWIG_From_double   PyFloat_FromDouble 
 
 
-SWIGINTERNINLINE PyObject* 
-SWIG_From_unsigned_SS_long  (unsigned long value)
-{
-  return (value > LONG_MAX) ?
-    PyLong_FromUnsignedLong(value) : PyInt_FromLong(static_cast< long >(value));
-}
-
-
 SWIGINTERNINLINE PyObject *
 SWIG_FromCharPtrAndSize(const char* carray, size_t size)
 {
@@ -3525,6 +3518,14 @@ SWIGINTERNINLINE PyObject *
 SWIG_From_std_string  (const std::string& s)
 {
   return SWIG_FromCharPtrAndSize(s.data(), s.size());
+}
+
+
+SWIGINTERNINLINE PyObject* 
+SWIG_From_unsigned_SS_long  (unsigned long value)
+{
+  return (value > LONG_MAX) ?
+    PyLong_FromUnsignedLong(value) : PyInt_FromLong(static_cast< long >(value));
 }
 
 
@@ -6828,7 +6829,7 @@ SWIGINTERN PyObject *_wrap_EntityAnn_compute_Lc_for_node(PyObject *SWIGUNUSEDPAR
   void *argp2 = 0 ;
   int res2 = 0 ;
   PyObject *swig_obj[2] ;
-  double result;
+  std::unordered_map< std::string,bool,std::hash< std::string >,std::equal_to< std::string >,std::allocator< std::pair< std::string const,bool > > > *result = 0 ;
   
   if (!SWIG_Python_UnpackTuple(args, "EntityAnn_compute_Lc_for_node", 2, 2, swig_obj)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EntityAnn, 0 |  0 );
@@ -6841,8 +6842,8 @@ SWIGINTERN PyObject *_wrap_EntityAnn_compute_Lc_for_node(PyObject *SWIGUNUSEDPAR
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "EntityAnn_compute_Lc_for_node" "', argument " "2"" of type '" "TNode *""'"); 
   }
   arg2 = reinterpret_cast< TNode * >(argp2);
-  result = (double)(arg1)->compute_Lc_for_node(arg2);
-  resultobj = SWIG_From_double(static_cast< double >(result));
+  result = (std::unordered_map< std::string,bool,std::hash< std::string >,std::equal_to< std::string >,std::allocator< std::pair< std::string const,bool > > > *)(arg1)->compute_Lc_for_node(arg2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__unordered_mapT_std__string_bool_std__hashT_std__string_t_std__equal_toT_std__string_t_std__allocatorT_std__pairT_std__string_const_bool_t_t_t, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -7132,7 +7133,6 @@ SWIGINTERN PyObject *_wrap_EntityAnn_propagate_counts(PyObject *SWIGUNUSEDPARM(s
   void *argp2 = 0 ;
   int res2 = 0 ;
   PyObject *swig_obj[2] ;
-  unsigned long result;
   
   if (!SWIG_Python_UnpackTuple(args, "EntityAnn_propagate_counts", 2, 2, swig_obj)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EntityAnn, 0 |  0 );
@@ -7145,8 +7145,8 @@ SWIGINTERN PyObject *_wrap_EntityAnn_propagate_counts(PyObject *SWIGUNUSEDPARM(s
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "EntityAnn_propagate_counts" "', argument " "2"" of type '" "TNode *""'"); 
   }
   arg2 = reinterpret_cast< TNode * >(argp2);
-  result = (unsigned long)(arg1)->propagate_counts(arg2);
-  resultobj = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  (arg1)->propagate_counts(arg2);
+  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
@@ -7785,6 +7785,38 @@ SWIGINTERN PyObject *_wrap_EntityAnn_get_properties_from_map(PyObject *SWIGUNUSE
   arg1 = reinterpret_cast< EntityAnn * >(argp1);
   result = (std::list< std::string,std::allocator< std::string > > *)(arg1)->get_properties_from_map();
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__listT_std__string_std__allocatorT_std__string_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_EntityAnn_get_counts_of_class(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  EntityAnn *arg1 = (EntityAnn *) 0 ;
+  std::string arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[2] ;
+  unsigned long result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "EntityAnn_get_counts_of_class", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EntityAnn, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EntityAnn_get_counts_of_class" "', argument " "1"" of type '" "EntityAnn *""'"); 
+  }
+  arg1 = reinterpret_cast< EntityAnn * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    int res = SWIG_AsPtr_std_string(swig_obj[1], &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "EntityAnn_get_counts_of_class" "', argument " "2"" of type '" "std::string""'"); 
+    }
+    arg2 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
+  result = (unsigned long)(arg1)->get_counts_of_class(arg2);
+  resultobj = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
   return resultobj;
 fail:
   return NULL;
@@ -9959,6 +9991,7 @@ static PyMethodDef SwigMethods[] = {
 	 { "EntityAnn_annotate_entity_property_heuristic", _wrap_EntityAnn_annotate_entity_property_heuristic, METH_VARARGS, NULL},
 	 { "EntityAnn_get_entities_of_class", _wrap_EntityAnn_get_entities_of_class, METH_VARARGS, NULL},
 	 { "EntityAnn_get_properties_from_map", _wrap_EntityAnn_get_properties_from_map, METH_O, NULL},
+	 { "EntityAnn_get_counts_of_class", _wrap_EntityAnn_get_counts_of_class, METH_VARARGS, NULL},
 	 { "EntityAnn_type_uri_set", _wrap_EntityAnn_type_uri_set, METH_VARARGS, NULL},
 	 { "EntityAnn_type_uri_get", _wrap_EntityAnn_type_uri_get, METH_O, NULL},
 	 { "EntityAnn_subclassof_uri_set", _wrap_EntityAnn_subclassof_uri_set, METH_VARARGS, NULL},
@@ -10028,6 +10061,7 @@ static swig_type_info _swigt__p_std__allocatorT_std__string_t = {"_p_std__alloca
 static swig_type_info _swigt__p_std__invalid_argument = {"_p_std__invalid_argument", "std::invalid_argument *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__listT_std__listT_std__string_std__allocatorT_std__string_t_t_p_std__allocatorT_std__listT_std__string_std__allocatorT_std__string_t_t_p_t_t = {"_p_std__listT_std__listT_std__string_std__allocatorT_std__string_t_t_p_std__allocatorT_std__listT_std__string_std__allocatorT_std__string_t_t_p_t_t", "std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__listT_std__string_std__allocatorT_std__string_t_t = {"_p_std__listT_std__string_std__allocatorT_std__string_t_t", "std::list< std::string > *|std::list< std::string,std::allocator< std::string > > *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__unordered_mapT_std__string_bool_std__hashT_std__string_t_std__equal_toT_std__string_t_std__allocatorT_std__pairT_std__string_const_bool_t_t_t = {"_p_std__unordered_mapT_std__string_bool_std__hashT_std__string_t_std__equal_toT_std__string_t_std__allocatorT_std__pairT_std__string_const_bool_t_t_t", "std::unordered_map< std::string,bool,std::hash< std::string >,std::equal_to< std::string >,std::allocator< std::pair< std::string const,bool > > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_swig__SwigPyIterator = {"_p_swig__SwigPyIterator", "swig::SwigPyIterator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_value_type = {"_p_value_type", "value_type *", 0, 0, (void*)0, 0};
 
@@ -10045,6 +10079,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_std__invalid_argument,
   &_swigt__p_std__listT_std__listT_std__string_std__allocatorT_std__string_t_t_p_std__allocatorT_std__listT_std__string_std__allocatorT_std__string_t_t_p_t_t,
   &_swigt__p_std__listT_std__string_std__allocatorT_std__string_t_t,
+  &_swigt__p_std__unordered_mapT_std__string_bool_std__hashT_std__string_t_std__equal_toT_std__string_t_std__allocatorT_std__pairT_std__string_const_bool_t_t_t,
   &_swigt__p_swig__SwigPyIterator,
   &_swigt__p_value_type,
 };
@@ -10062,6 +10097,7 @@ static swig_cast_info _swigc__p_std__allocatorT_std__string_t[] = {  {&_swigt__p
 static swig_cast_info _swigc__p_std__invalid_argument[] = {  {&_swigt__p_std__invalid_argument, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__listT_std__listT_std__string_std__allocatorT_std__string_t_t_p_std__allocatorT_std__listT_std__string_std__allocatorT_std__string_t_t_p_t_t[] = {  {&_swigt__p_std__listT_std__listT_std__string_std__allocatorT_std__string_t_t_p_std__allocatorT_std__listT_std__string_std__allocatorT_std__string_t_t_p_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__listT_std__string_std__allocatorT_std__string_t_t[] = {  {&_swigt__p_std__listT_std__string_std__allocatorT_std__string_t_t, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__unordered_mapT_std__string_bool_std__hashT_std__string_t_std__equal_toT_std__string_t_std__allocatorT_std__pairT_std__string_const_bool_t_t_t[] = {  {&_swigt__p_std__unordered_mapT_std__string_bool_std__hashT_std__string_t_std__equal_toT_std__string_t_std__allocatorT_std__pairT_std__string_const_bool_t_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_swig__SwigPyIterator[] = {  {&_swigt__p_swig__SwigPyIterator, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_value_type[] = {  {&_swigt__p_value_type, 0, 0, 0},{0, 0, 0, 0}};
 
@@ -10079,6 +10115,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_std__invalid_argument,
   _swigc__p_std__listT_std__listT_std__string_std__allocatorT_std__string_t_t_p_std__allocatorT_std__listT_std__string_std__allocatorT_std__string_t_t_p_t_t,
   _swigc__p_std__listT_std__string_std__allocatorT_std__string_t_t,
+  _swigc__p_std__unordered_mapT_std__string_bool_std__hashT_std__string_t_std__equal_toT_std__string_t_std__allocatorT_std__pairT_std__string_const_bool_t_t_t,
   _swigc__p_swig__SwigPyIterator,
   _swigc__p_value_type,
 };

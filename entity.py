@@ -249,6 +249,9 @@ class EntityAnn(object):
 
     def get_properties_from_map(self):
         return _entity.EntityAnn_get_properties_from_map(self)
+
+    def get_counts_of_class(self, arg2):
+        return _entity.EntityAnn_get_counts_of_class(self, arg2)
     type_uri = property(_entity.EntityAnn_type_uri_get, _entity.EntityAnn_type_uri_set)
     subclassof_uri = property(_entity.EntityAnn_subclassof_uri_get, _entity.EntityAnn_subclassof_uri_set)
     label_uri = property(_entity.EntityAnn_label_uri_get, _entity.EntityAnn_label_uri_set)
