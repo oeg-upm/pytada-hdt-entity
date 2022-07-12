@@ -78,11 +78,13 @@ use the debian script but update it with the equivalent command to install prere
 
 # Known Issues
 
-* `ld: library not found for -ltabularparser` (on Mac) when running  `python setup.py build_ext --inplace`.
+* library not found.
+`ld: library not found for -ltabularparser` (on Mac) when running  `python setup.py build_ext --inplace`.
 
 Solution: Run `export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/lib` before running `python setup.py build_ext --inplace`.
 
-* ```
+* library linking error
+```
 In file included from graph.cpp:1:
 ./graph.h:8:10: fatal error: 'easy_logger/easy_logger.h' file not found
 #include <easy_logger/easy_logger.h>
