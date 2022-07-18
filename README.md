@@ -76,6 +76,14 @@ use the debian script but update it with the equivalent command to install prere
 }
 ```
 
+# Run tests
+1. Generate `test.hdt`.
+   1. `cd pytada-hdt-entity/test_files`
+   2. `~/hdt-cpp/libhdt/tools/rdf2hdt test.ttl test.hdt` (change the location to point to the `hdt-cpp`).
+2. Run test cases. 
+   1. Return back to the pytada-hdt-entity folder `cd ..`.
+   2. `python tests.py`.
+
 # Known Issues
 
 * library not found.
