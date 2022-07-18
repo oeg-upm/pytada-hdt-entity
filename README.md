@@ -1,8 +1,10 @@
 # pytada-hdt-entity
-
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3764190.svg)](https://doi.org/10.5281/zenodo.3764190)
+[![Python 3.6](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
+
 
 A python library binding of the c++ library `tada-hdt-entity`
+
 
 
 # Install via pip
@@ -56,6 +58,10 @@ use the debian script but update it with the equivalent command to install prere
 5. tada_hdt_entity lib
 
 
+## Install SWIG
+### MacOS via brew
+```brew install swig```
+
 # To cite
 ```
 @software{alobaid_ahmad_2020_3764190,
@@ -69,3 +75,29 @@ use the debian script but update it with the equivalent command to install prere
   url          = {https://doi.org/10.5281/zenodo.3764190}
 }
 ```
+
+# Run tests
+1. Generate `test.hdt`.
+   1. `cd pytada-hdt-entity/test_files`
+   2. `~/hdt-cpp/libhdt/tools/rdf2hdt test.ttl test.hdt` (change the location to point to the `hdt-cpp`).
+2. Run test cases. 
+   1. Return back to the pytada-hdt-entity folder `cd ..`.
+   2. `python tests.py`.
+
+# Known Issues
+
+* library not found.
+`ld: library not found for -ltabularparser` (on Mac) when running  `python setup.py build_ext --inplace`.
+
+Solution: Run `export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/lib` before running `python setup.py build_ext --inplace`.
+
+* library linking error
+```
+In file included from graph.cpp:1:
+./graph.h:8:10: fatal error: 'easy_logger/easy_logger.h' file not found
+#include <easy_logger/easy_logger.h>
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 error generated.
+error: command '/usr/bin/clang' failed with exit code 1
+``` (Mac)
+

@@ -66,34 +66,32 @@ modules = []
 
 # modules += Extension('_entity', ['entity.i'], swig_opts=['-c++'])
 
+# To solve the issue of Mac
+include_dirs = ['.', '/usr/local/include/']
 
 entity_module = Extension('_entity',
-                           include_dirs=['.'],
-                           libraries=['hdt', 'easylogger', 'tadahdtentity', 'tabularparser'],
-                           extra_compile_args=['-std=c++11'],
-                           sources = ['entity.cpp','entity_wrap.cxx'])
-
+                          include_dirs=include_dirs,
+                          libraries=['hdt', 'easylogger', 'tadahdtentity', 'tabularparser'],
+                          extra_compile_args=['-std=c++11'],
+                          sources=['entity.cpp', 'entity_wrap.cxx'])
 
 tnode_module = Extension('_tnode',
-                    include_dirs = ['.'],
-                    libraries = ['hdt','easylogger','tadahdtentity','tabularparser'],
-                     extra_compile_args=['-std=c++11'],
-                    sources = ['tnode.cpp', 'tnode_wrap.cxx'])
-
+                         include_dirs=include_dirs,
+                         libraries=['hdt', 'easylogger', 'tadahdtentity', 'tabularparser'],
+                         extra_compile_args=['-std=c++11'],
+                         sources=['tnode.cpp', 'tnode_wrap.cxx'])
 
 graph_module = Extension('_graph',
-                    include_dirs = ['.'],
-                    libraries = ['hdt','easylogger','tadahdtentity','tabularparser'],
-                     extra_compile_args=['-std=c++11'],
-                    sources = ['graph.cpp','graph_wrap.cxx'])
-
+                         include_dirs=include_dirs,
+                         libraries=['hdt', 'easylogger', 'tadahdtentity', 'tabularparser'],
+                         extra_compile_args=['-std=c++11'],
+                         sources=['graph.cpp', 'graph_wrap.cxx'])
 
 parser_module = Extension('_parser',
-                    include_dirs = ['.'],
-                    libraries = ['tabularparser'],
-                     extra_compile_args=['-std=c++11'],
-                    sources = ['parser.cpp', 'parser_wrap.cxx'])
-
+                          include_dirs=include_dirs,
+                          libraries=['tabularparser'],
+                          extra_compile_args=['-std=c++11'],
+                          sources=['parser.cpp', 'parser_wrap.cxx'])
 
 modules = [
     parser_module,
@@ -102,16 +100,16 @@ modules = [
     entity_module
 ]
 
-setup (name = 'tada_hdt_entity',
-       version = '1.8',
-       description = 'This package is a wrapper of tada_hdt_library',
-       author = 'Ahmad Alobaid',
-       author_email = 'aalobaid@fi.upm.es',
-       url = 'https://github.com/oeg-upm/pytada-hdt-entity',
-       long_description = '''This package is to label entity columns in CSV files using a given HDT file''',
-       ext_modules = modules,
-       # py_modules = ["entity","graph","tnode","parser"],
-       packages=['tada_hdt_entity'],
-       ext_package='tada_hdt_entity',
-       # provides="tada_hdt_entity"
-)
+setup(name='tada_hdt_entity',
+      version='1.8',
+      description='This package is a wrapper of tada_hdt_library',
+      author='Ahmad Alobaid',
+      author_email='aalobaid@fi.upm.es',
+      url='https://github.com/oeg-upm/pytada-hdt-entity',
+      long_description='''This package is to label entity columns in CSV files using a given HDT file''',
+      ext_modules=modules,
+      # py_modules = ["entity","graph","tnode","parser"],
+      packages=['tada_hdt_entity'],
+      ext_package='tada_hdt_entity',
+      # provides="tada_hdt_entity"
+      )
