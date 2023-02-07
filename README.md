@@ -29,16 +29,26 @@ use the debian script but update it with the equivalent command to install prere
 	* `export LC_ALL=en_US.UTF-8` (needed for mac)
 	* `export LANG=en_US.UTF-8` (needed for mac)
 1. Generate the interface files:
-	* `invoke copy` (only if you need to copy the source files to the current folder. If you copy the c++ files to this directory, you do not need to do it).
-	* `invoke parser`
-	* `invoke tnode`
-	* `invoke graph`
-	* `invoke entity`  
+	* `invoke copyc` (only if you need to copy the source files to the current folder. If you copy the c++ files to this directory, you do not need to do it). Note that you need to setup the environment variable `project_dir` to point to the tada-hdt-entity directory.
 1. Copy the python files into the package:
-	* `cp parser.py tada_hdt_entity/`
-	* `cp tnode.py tada_hdt_entity/`
-	* `cp graph.py tada_hdt_entity/`
-	* `cp entity.py tada_hdt_entity/`
+    * `invoke copypy` Copy the generated python files to tada_hdt_entity
+
+[//]: # (	* `invoke parser`)
+
+[//]: # (	* `invoke tnode`)
+
+[//]: # (	* `invoke graph`)
+
+[//]: # (	* `invoke entity`  )
+[//]: # (1. Copy the python files into the package:)
+
+[//]: # (	* `cp parser.py tada_hdt_entity/`)
+
+[//]: # (	* `cp tnode.py tada_hdt_entity/`)
+
+[//]: # (	* `cp graph.py tada_hdt_entity/`)
+
+[//]: # (	* `cp entity.py tada_hdt_entity/`)
 1. Update `setup.py` with the new version of the library	
 
 # Prerequisites to install
