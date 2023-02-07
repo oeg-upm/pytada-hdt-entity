@@ -1,12 +1,13 @@
 import unittest
 from tada_hdt_entity.entity import EntityAnn
 from tada_hdt_entity.parser import Parser
+import os
 
 # import entity
 # from entity import EntityAnn
 # from parser import Parser
 
-hdt_file = "test.hdt"
+hdt_path = os.path.join("test_files", "test.hdt")
 log_file = "tests.log"
 
 
@@ -21,7 +22,7 @@ class TestAll(unittest.TestCase):
         class_uri = "http://dbpedia.org/ontology/Wrestler"
         p = Parser("test_files/test8.csv")
         data = p.parse_vertical()
-        ea = EntityAnn("test.hdt","tests.log", 0.9)
+        ea = EntityAnn(hdt_path, log_file, 0.9)
         ea.set_alpha(0.9)
         ea.set_title_case(False)
         properties = ea.annotate_entity_property_column(data, 1, 2)
