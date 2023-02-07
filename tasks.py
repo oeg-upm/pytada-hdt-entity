@@ -13,7 +13,7 @@ def copyc_tada(c):
         if f[-2:] == ".h":
             p_dir = "include"
         fdir = os.path.join(tada_hdt_entity_dir, p_dir, f)
-        comm = "cp -f %s ./" % fdir
+        comm = "cp -f %s ./src" % fdir
         print(comm)
         c.run(comm)
 
@@ -22,7 +22,7 @@ def copyc_parser(c):
     files = ["parser.cpp", "parser.h"]
     for f in files:
         fdir = os.path.join(tabular_parser_dir, f)
-        comm = "cp -f %s ./" % fdir
+        comm = "cp -f %s ./src" % fdir
         print(comm)
         c.run(comm)
 
@@ -34,18 +34,18 @@ def copyc(c):
 
 
 @task
-def copypy(c):
+def movepy(c):
     files = ["tnode.py", "graph.py", "entity.py", "parser.py"]
     for f in files:
-        comm = "cp -f %s ./tada_hdt_entity/" % f
+        comm = "mv -f src/%s ./tada_hdt_entity/" % f
         print(comm)
         c.run(comm)
 
 @task
-def copyso(c):
+def moveso(c):
     files = ["_tnode.so", "_graph.so", "_entity.so", "_parser.so"]
     for f in files:
-        comm = "cp -f %s ./tada_hdt_entity/" % f
+        comm = "mv -f src/%s ./tada_hdt_entity/" % f
         print(comm)
         c.run(comm)
 
@@ -95,10 +95,10 @@ def parser(c):
     # Doesn't work - updated
     fname = "parser"
     cpp_name = "parser.cpp"
-    comm = "swig -c++ -python %s.i  ; " % fname
+    comm = "cd src; swig -c++ -python %s.i ; " % fname
     comm += "g++ -O2 -std=c++11 -fPIC -c %s  ;" % cpp_name
     comm += "g++ -c -std=c++11 -fpic %s_wrap.cxx -I/usr/include/python3  -I . `python-config --include`   ; " % fname
-    comm += "g++ -lpython -std=c++11 -dynamiclib -flat_namespace %s.o %s_wrap.o -o _%s.so" % (fname, fname, fname)
+    comm += "g++ -lpython -std=c++11 -dynamiclib -flat_namespace %s.o %s_wrap.o -o _%s.so -leasylogger -ltadahdtentity -lhdt -ltabularparser -pthread;" % (fname, fname, fname)
     print("command: ")
     print(comm)
     c.run(comm)
@@ -110,11 +110,11 @@ def parser(c):
 def entity(c):
     fname = "entity"
     cpp_name = "entity.cpp"
-    comm = "swig -c++ -python %s.i ; " % fname
+    comm = "cd src; swig -c++ -python %s.i ; " % fname
     comm += "g++ -O2 -std=c++11 -fPIC -c %s  ;" % cpp_name
     comm += "g++ -c -std=c++11 -fpic %s_wrap.cxx -I/usr/include/python3  -I .  `python-config --include`   ; " % fname
     comm += "g++ -lpython -std=c++11 -dynamiclib  %s.o %s_wrap.o -o _%s.so -leasylogger -ltadahdtentity -lhdt -ltabularparser -pthread ;" % (fname, fname, fname)
-    comm += "python %s_test.py " % (fname)
+    # comm += "python %s_test.py " % (fname)
     print("command: ")
     print(comm)
     c.run(comm)
@@ -130,11 +130,11 @@ g++ -lpython -dynamiclib -flat_namespace tnode.o tnode_wrap.o -o _tnode.so
 """
     fname = "graph"
     cpp_name = "graph.cpp"
-    comm = "swig -c++ -python %s.i ; " % fname
+    comm = "cd src; swig -c++ -python %s.i ; " % fname
     comm += "g++ -O2 -std=c++11 -fPIC -c %s  ;" % cpp_name
     comm += "g++ -c -std=c++11 -fpic %s_wrap.cxx -I/usr/include/python3  -I .  `python-config --include`   ; " % fname
     comm += "g++ -lpython -std=c++11 -dynamiclib  %s.o %s_wrap.o -o _%s.so -leasylogger -ltadahdtentity ;" % (fname, fname, fname)
-    comm += "python %s_test.py " % (fname)
+    # comm += "python %s_test.py " % (fname)
     print("command: ")
     print(comm)
     c.run(comm)
@@ -157,7 +157,7 @@ g++ -lpython -dynamiclib -flat_namespace tnode.o tnode_wrap.o -o _tnode.so
     fname = "tnode"
     cpp_name = "tnode.cpp"
     extension_name = "tnode.so"
-    comm = "swig -c++ -python %s.i ; " % fname
+    comm = "cd src; swig -c++ -python %s.i ; " % fname
     comm += "g++ -O2 -std=c++11 -fPIC -c %s ;" % cpp_name
     comm += "g++ -c -std=c++11 -fpic %s_wrap.cxx -I/usr/include/python3  -I .  `python-config --include` ; " % fname
     # comm += "g++ -lpython -dynamiclib %s.o %s_wrap.o -o _%s.so ;" % (fname, fname, fname)

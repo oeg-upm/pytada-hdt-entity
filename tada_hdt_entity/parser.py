@@ -69,52 +69,52 @@ class SwigPyIterator(object):
     __repr__ = _swig_repr
     __swig_destroy__ = _parser.delete_SwigPyIterator
 
-    def value(self) -> "PyObject *":
+    def value(self):
         return _parser.SwigPyIterator_value(self)
 
-    def incr(self, n: "size_t"=1) -> "swig::SwigPyIterator *":
+    def incr(self, n=1):
         return _parser.SwigPyIterator_incr(self, n)
 
-    def decr(self, n: "size_t"=1) -> "swig::SwigPyIterator *":
+    def decr(self, n=1):
         return _parser.SwigPyIterator_decr(self, n)
 
-    def distance(self, x: "SwigPyIterator") -> "ptrdiff_t":
+    def distance(self, x):
         return _parser.SwigPyIterator_distance(self, x)
 
-    def equal(self, x: "SwigPyIterator") -> "bool":
+    def equal(self, x):
         return _parser.SwigPyIterator_equal(self, x)
 
-    def copy(self) -> "swig::SwigPyIterator *":
+    def copy(self):
         return _parser.SwigPyIterator_copy(self)
 
-    def next(self) -> "PyObject *":
+    def next(self):
         return _parser.SwigPyIterator_next(self)
 
-    def __next__(self) -> "PyObject *":
+    def __next__(self):
         return _parser.SwigPyIterator___next__(self)
 
-    def previous(self) -> "PyObject *":
+    def previous(self):
         return _parser.SwigPyIterator_previous(self)
 
-    def advance(self, n: "ptrdiff_t") -> "swig::SwigPyIterator *":
+    def advance(self, n):
         return _parser.SwigPyIterator_advance(self, n)
 
-    def __eq__(self, x: "SwigPyIterator") -> "bool":
+    def __eq__(self, x):
         return _parser.SwigPyIterator___eq__(self, x)
 
-    def __ne__(self, x: "SwigPyIterator") -> "bool":
+    def __ne__(self, x):
         return _parser.SwigPyIterator___ne__(self, x)
 
-    def __iadd__(self, n: "ptrdiff_t") -> "swig::SwigPyIterator &":
+    def __iadd__(self, n):
         return _parser.SwigPyIterator___iadd__(self, n)
 
-    def __isub__(self, n: "ptrdiff_t") -> "swig::SwigPyIterator &":
+    def __isub__(self, n):
         return _parser.SwigPyIterator___isub__(self, n)
 
-    def __add__(self, n: "ptrdiff_t") -> "swig::SwigPyIterator *":
+    def __add__(self, n):
         return _parser.SwigPyIterator___add__(self, n)
 
-    def __sub__(self, *args) -> "ptrdiff_t":
+    def __sub__(self, *args):
         return _parser.SwigPyIterator___sub__(self, *args)
     def __iter__(self):
         return self
@@ -126,8 +126,23 @@ class Parser(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
 
-    def __init__(self, arg2: "std::string"):
+    def __init__(self, arg2):
         _parser.Parser_swiginit(self, _parser.new_Parser(arg2))
+
+    def parse(self):
+        return _parser.Parser_parse(self)
+
+    def parse_vertical(self):
+        return _parser.Parser_parse_vertical(self)
+
+    def set_delimiter(self, arg2):
+        return _parser.Parser_set_delimiter(self, arg2)
+
+    def set_escape_chars(self, arg2):
+        return _parser.Parser_set_escape_chars(self, arg2)
+
+    def get_printable(self, arg2):
+        return _parser.Parser_get_printable(self, arg2)
     __swig_destroy__ = _parser.delete_Parser
 
 # Register Parser in _parser:

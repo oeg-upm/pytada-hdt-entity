@@ -2695,9 +2695,10 @@ SWIGINTERN PyObject *SWIG_PyStaticMethod_New(PyObject *SWIGUNUSEDPARM(self), PyO
 #define SWIGTYPE_p_Parser swig_types[0]
 #define SWIGTYPE_p_char swig_types[1]
 #define SWIGTYPE_p_std__invalid_argument swig_types[2]
-#define SWIGTYPE_p_swig__SwigPyIterator swig_types[3]
-static swig_type_info *swig_types[5];
-static swig_module_info swig_module = {swig_types, 4, 0, 0, 0, 0};
+#define SWIGTYPE_p_std__listT_std__listT_std__string_std__allocatorT_std__string_t_t_p_std__allocatorT_std__listT_std__string_std__allocatorT_std__string_t_t_p_t_t swig_types[3]
+#define SWIGTYPE_p_swig__SwigPyIterator swig_types[4]
+static swig_type_info *swig_types[6];
+static swig_module_info swig_module = {swig_types, 5, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -2709,16 +2710,16 @@ static swig_module_info swig_module = {swig_types, 4, 0, 0, 0, 0};
 #define SWIG_TypeQuery SWIG_Python_TypeQuery
 
 /*-----------------------------------------------
-              @(target):= _tnode.so
+              @(target):= _parser.so
   ------------------------------------------------*/
 #if PY_VERSION_HEX >= 0x03000000
-#  define SWIG_init    PyInit__tnode
+#  define SWIG_init    PyInit__parser
 
 #else
-#  define SWIG_init    init_tnode
+#  define SWIG_init    init_parser
 
 #endif
-#define SWIG_name    "_tnode"
+#define SWIG_name    "_parser"
 
 #define SWIGVERSION 0x040002 
 #define SWIG_VERSION SWIGVERSION
@@ -3474,6 +3475,82 @@ SWIG_AsPtr_std_string (PyObject * obj, std::string **val)
     }
   }
   return SWIG_ERROR;
+}
+
+
+SWIGINTERN int
+SWIG_AsCharArray(PyObject * obj, char *val, size_t size)
+{ 
+  char* cptr = 0; size_t csize = 0; int alloc = SWIG_OLDOBJ;
+  int res = SWIG_AsCharPtrAndSize(obj, &cptr, &csize, &alloc);
+  if (SWIG_IsOK(res)) {
+    /* special case of single char conversion when we don't need space for NUL */
+    if (size == 1 && csize == 2 && cptr && !cptr[1]) --csize;
+    if (csize <= size) {
+      if (val) {
+	if (csize) memcpy(val, cptr, csize*sizeof(char));
+	if (csize < size) memset(val + csize, 0, (size - csize)*sizeof(char));
+      }
+      if (alloc == SWIG_NEWOBJ) {
+	delete[] cptr;
+	res = SWIG_DelNewMask(res);
+      }      
+      return res;
+    }
+    if (alloc == SWIG_NEWOBJ) delete[] cptr;
+  }
+  return SWIG_TypeError;
+}
+
+
+SWIGINTERN int
+SWIG_AsVal_char (PyObject * obj, char *val)
+{    
+  int res = SWIG_AsCharArray(obj, val, 1);
+  if (!SWIG_IsOK(res)) {
+    long v;
+    res = SWIG_AddCast(SWIG_AsVal_long (obj, &v));
+    if (SWIG_IsOK(res)) {
+      if ((CHAR_MIN <= v) && (v <= CHAR_MAX)) {
+	if (val) *val = static_cast< char >(v);
+      } else {
+	res = SWIG_OverflowError;
+      }
+    }
+  }
+  return res;
+}
+
+
+SWIGINTERNINLINE PyObject *
+SWIG_FromCharPtrAndSize(const char* carray, size_t size)
+{
+  if (carray) {
+    if (size > INT_MAX) {
+      swig_type_info* pchar_descriptor = SWIG_pchar_descriptor();
+      return pchar_descriptor ? 
+	SWIG_InternalNewPointerObj(const_cast< char * >(carray), pchar_descriptor, 0) : SWIG_Py_Void();
+    } else {
+#if PY_VERSION_HEX >= 0x03000000
+#if defined(SWIG_PYTHON_STRICT_BYTE_CHAR)
+      return PyBytes_FromStringAndSize(carray, static_cast< Py_ssize_t >(size));
+#else
+      return PyUnicode_DecodeUTF8(carray, static_cast< Py_ssize_t >(size), "surrogateescape");
+#endif
+#else
+      return PyString_FromStringAndSize(carray, static_cast< Py_ssize_t >(size));
+#endif
+    }
+  } else {
+    return SWIG_Py_Void();
+  }
+}
+
+
+SWIGINTERNINLINE PyObject *
+SWIG_From_std_string  (const std::string& s)
+{
+  return SWIG_FromCharPtrAndSize(s.data(), s.size());
 }
 
 #ifdef __cplusplus
@@ -4310,6 +4387,144 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_Parser_parse(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Parser *arg1 = (Parser *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Parser, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Parser_parse" "', argument " "1"" of type '" "Parser *""'"); 
+  }
+  arg1 = reinterpret_cast< Parser * >(argp1);
+  result = (std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > *)(arg1)->parse();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__listT_std__listT_std__string_std__allocatorT_std__string_t_t_p_std__allocatorT_std__listT_std__string_std__allocatorT_std__string_t_t_p_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Parser_parse_vertical(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Parser *arg1 = (Parser *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > *result = 0 ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Parser, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Parser_parse_vertical" "', argument " "1"" of type '" "Parser *""'"); 
+  }
+  arg1 = reinterpret_cast< Parser * >(argp1);
+  result = (std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > *)(arg1)->parse_vertical();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__listT_std__listT_std__string_std__allocatorT_std__string_t_t_p_std__allocatorT_std__listT_std__string_std__allocatorT_std__string_t_t_p_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Parser_set_delimiter(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Parser *arg1 = (Parser *) 0 ;
+  char arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  char val2 ;
+  int ecode2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "Parser_set_delimiter", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Parser, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Parser_set_delimiter" "', argument " "1"" of type '" "Parser *""'"); 
+  }
+  arg1 = reinterpret_cast< Parser * >(argp1);
+  ecode2 = SWIG_AsVal_char(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Parser_set_delimiter" "', argument " "2"" of type '" "char""'");
+  } 
+  arg2 = static_cast< char >(val2);
+  (arg1)->set_delimiter(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Parser_set_escape_chars(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Parser *arg1 = (Parser *) 0 ;
+  std::string arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "Parser_set_escape_chars", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Parser, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Parser_set_escape_chars" "', argument " "1"" of type '" "Parser *""'"); 
+  }
+  arg1 = reinterpret_cast< Parser * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    int res = SWIG_AsPtr_std_string(swig_obj[1], &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "Parser_set_escape_chars" "', argument " "2"" of type '" "std::string""'"); 
+    }
+    arg2 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
+  (arg1)->set_escape_chars(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Parser_get_printable(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Parser *arg1 = (Parser *) 0 ;
+  std::string arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[2] ;
+  std::string result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "Parser_get_printable", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_Parser, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Parser_get_printable" "', argument " "1"" of type '" "Parser *""'"); 
+  }
+  arg1 = reinterpret_cast< Parser * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    int res = SWIG_AsPtr_std_string(swig_obj[1], &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "Parser_get_printable" "', argument " "2"" of type '" "std::string""'"); 
+    }
+    arg2 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
+  result = (arg1)->get_printable(arg2);
+  resultobj = SWIG_From_std_string(static_cast< std::string >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_delete_Parser(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   Parser *arg1 = (Parser *) 0 ;
@@ -4364,6 +4579,11 @@ static PyMethodDef SwigMethods[] = {
 	 { "SwigPyIterator___sub__", _wrap_SwigPyIterator___sub__, METH_VARARGS, NULL},
 	 { "SwigPyIterator_swigregister", SwigPyIterator_swigregister, METH_O, NULL},
 	 { "new_Parser", _wrap_new_Parser, METH_O, NULL},
+	 { "Parser_parse", _wrap_Parser_parse, METH_O, NULL},
+	 { "Parser_parse_vertical", _wrap_Parser_parse_vertical, METH_O, NULL},
+	 { "Parser_set_delimiter", _wrap_Parser_set_delimiter, METH_VARARGS, NULL},
+	 { "Parser_set_escape_chars", _wrap_Parser_set_escape_chars, METH_VARARGS, NULL},
+	 { "Parser_get_printable", _wrap_Parser_get_printable, METH_VARARGS, NULL},
 	 { "delete_Parser", _wrap_delete_Parser, METH_O, NULL},
 	 { "Parser_swigregister", Parser_swigregister, METH_O, NULL},
 	 { "Parser_swiginit", Parser_swiginit, METH_VARARGS, NULL},
@@ -4380,24 +4600,28 @@ static PyMethodDef SwigMethods_proxydocs[] = {
 static swig_type_info _swigt__p_Parser = {"_p_Parser", "Parser *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__invalid_argument = {"_p_std__invalid_argument", "std::invalid_argument *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__listT_std__listT_std__string_std__allocatorT_std__string_t_t_p_std__allocatorT_std__listT_std__string_std__allocatorT_std__string_t_t_p_t_t = {"_p_std__listT_std__listT_std__string_std__allocatorT_std__string_t_t_p_std__allocatorT_std__listT_std__string_std__allocatorT_std__string_t_t_p_t_t", "std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_swig__SwigPyIterator = {"_p_swig__SwigPyIterator", "swig::SwigPyIterator *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
   &_swigt__p_Parser,
   &_swigt__p_char,
   &_swigt__p_std__invalid_argument,
+  &_swigt__p_std__listT_std__listT_std__string_std__allocatorT_std__string_t_t_p_std__allocatorT_std__listT_std__string_std__allocatorT_std__string_t_t_p_t_t,
   &_swigt__p_swig__SwigPyIterator,
 };
 
 static swig_cast_info _swigc__p_Parser[] = {  {&_swigt__p_Parser, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__invalid_argument[] = {  {&_swigt__p_std__invalid_argument, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__listT_std__listT_std__string_std__allocatorT_std__string_t_t_p_std__allocatorT_std__listT_std__string_std__allocatorT_std__string_t_t_p_t_t[] = {  {&_swigt__p_std__listT_std__listT_std__string_std__allocatorT_std__string_t_t_p_std__allocatorT_std__listT_std__string_std__allocatorT_std__string_t_t_p_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_swig__SwigPyIterator[] = {  {&_swigt__p_swig__SwigPyIterator, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_Parser,
   _swigc__p_char,
   _swigc__p_std__invalid_argument,
+  _swigc__p_std__listT_std__listT_std__string_std__allocatorT_std__string_t_t_p_std__allocatorT_std__listT_std__string_std__allocatorT_std__string_t_t_p_t_t,
   _swigc__p_swig__SwigPyIterator,
 };
 

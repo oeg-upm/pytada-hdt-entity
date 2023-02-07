@@ -12,11 +12,17 @@ A python library binding of the c++ library `tada-hdt-entity`
 pip install git+https://github.com/oeg-upm/pytada-hdt-entity.git
 ```
 
-# To build and install
+
+# To build 
 ```
 python setup.py build_ext --inplace
+```
+*this will generate the .so library files*
+# Install 
+```
 python setup.py install
 ```
+*this will generate the python files for the library*
 
 
 # Install prerequisites via a script

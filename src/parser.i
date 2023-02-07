@@ -1,5 +1,5 @@
 // parser.i - SWIG interface
-%module tnode
+%module parser
 %include "std_string.i"
 %include "std_unordered_map.i"
 %include "std_list.i"

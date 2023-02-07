@@ -7,25 +7,26 @@ entity_module = Extension('_entity',
                           include_dirs=include_dirs,
                           libraries=['hdt', 'easylogger', 'tadahdtentity', 'tabularparser'],
                           extra_compile_args=['-std=c++11'],
-                          sources=['entity.cpp', 'entity_wrap.cxx'])
+                          sources=['src/entity.cpp', 'src/entity_wrap.cxx'])
 
 tnode_module = Extension('_tnode',
                          include_dirs=include_dirs,
                          libraries=['hdt', 'easylogger', 'tadahdtentity', 'tabularparser'],
                          extra_compile_args=['-std=c++11'],
-                         sources=['tnode.cpp', 'tnode_wrap.cxx'])
+                         sources=['src/tnode.cpp', 'src/tnode_wrap.cxx'])
 
 graph_module = Extension('_graph',
                          include_dirs=include_dirs,
                          libraries=['hdt', 'easylogger', 'tadahdtentity', 'tabularparser'],
                          extra_compile_args=['-std=c++11'],
-                         sources=['graph.cpp', 'graph_wrap.cxx'])
+                         sources=['src/graph.cpp', 'src/graph_wrap.cxx'])
 
 parser_module = Extension('_parser',
                           include_dirs=include_dirs,
-                          libraries=['tabularparser', 'easylogger'],
+                          # libraries=['tabularparser', 'easylogger'],
+                          libraries=['easylogger'],
                           extra_compile_args=['-std=c++11'],
-                          sources=['parser.cpp', 'parser_wrap.cxx'])
+                          sources=['src/parser.cpp', 'src/parser_wrap.cxx'])
 
 
 modules = [
