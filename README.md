@@ -12,11 +12,30 @@ A python library binding of the c++ library `tada-hdt-entity`
 pip install git+https://github.com/oeg-upm/pytada-hdt-entity.git
 ```
 
-# To build and install
+# Build and Compile
 ```
-python setup.py build_ext --inplace
-python setup.py install
+sh scripts/compile.sh  
 ```
+
+[//]: # (# To build )
+
+[//]: # (```)
+
+[//]: # (python setup.py build_ext --inplace)
+
+[//]: # (```)
+
+[//]: # (*this will generate the .so library files*)
+
+[//]: # (# Install )
+
+[//]: # (```)
+
+[//]: # (python setup.py install)
+
+[//]: # (```)
+
+[//]: # (*this will generate the python files for the library*)
 
 
 # Install prerequisites via a script
@@ -31,16 +50,26 @@ use the debian script but update it with the equivalent command to install prere
 	* `export LC_ALL=en_US.UTF-8` (needed for mac)
 	* `export LANG=en_US.UTF-8` (needed for mac)
 1. Generate the interface files:
-	* `invoke copy` (only if you need to copy the source files to the current folder. If you copy the c++ files to this directory, you do not need to do it).
-	* `invoke parser`
-	* `invoke tnode`
-	* `invoke graph`
-	* `invoke entity`  
+	* `invoke copyc` (only if you need to copy the source files to the current folder. If you copy the c++ files to this directory, you do not need to do it). Note that you need to setup the environment variable `project_dir` to point to the tada-hdt-entity directory.
 1. Copy the python files into the package:
-	* `cp parser.py tada_hdt_entity/`
-	* `cp tnode.py tada_hdt_entity/`
-	* `cp graph.py tada_hdt_entity/`
-	* `cp entity.py tada_hdt_entity/`
+    * `invoke copypy` Copy the generated python files to tada_hdt_entity
+
+[//]: # (	* `invoke parser`)
+
+[//]: # (	* `invoke tnode`)
+
+[//]: # (	* `invoke graph`)
+
+[//]: # (	* `invoke entity`  )
+[//]: # (1. Copy the python files into the package:)
+
+[//]: # (	* `cp parser.py tada_hdt_entity/`)
+
+[//]: # (	* `cp tnode.py tada_hdt_entity/`)
+
+[//]: # (	* `cp graph.py tada_hdt_entity/`)
+
+[//]: # (	* `cp entity.py tada_hdt_entity/`)
 1. Update `setup.py` with the new version of the library	
 
 # Prerequisites to install
@@ -82,7 +111,7 @@ use the debian script but update it with the equivalent command to install prere
    2. `~/hdt-cpp/libhdt/tools/rdf2hdt test.ttl test.hdt` (change the location to point to the `hdt-cpp`).
 2. Run test cases. 
    1. Return back to the pytada-hdt-entity folder `cd ..`.
-   2. `python tests.py`.
+   2. `python -m unittest discover`.
 
 # Known Issues
 
