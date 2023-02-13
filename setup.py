@@ -37,7 +37,7 @@ modules = [
 ]
 
 setup(name='tada_hdt_entity',
-      version='1.9',
+      version='1.10',
       description='This package is a wrapper of tada-hdt-entity',
       author='Ahmad Alobaid',
       author_email='aalobaid@fi.upm.es',
