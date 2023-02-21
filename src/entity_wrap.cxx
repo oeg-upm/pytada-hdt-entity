@@ -7514,37 +7514,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_EntityAnn_set_language_tag(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  EntityAnn *arg1 = (EntityAnn *) 0 ;
-  std::string arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[2] ;
-  
-  if (!SWIG_Python_UnpackTuple(args, "EntityAnn_set_language_tag", 2, 2, swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EntityAnn, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EntityAnn_set_language_tag" "', argument " "1"" of type '" "EntityAnn *""'"); 
-  }
-  arg1 = reinterpret_cast< EntityAnn * >(argp1);
-  {
-    std::string *ptr = (std::string *)0;
-    int res = SWIG_AsPtr_std_string(swig_obj[1], &ptr);
-    if (!SWIG_IsOK(res) || !ptr) {
-      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "EntityAnn_set_language_tag" "', argument " "2"" of type '" "std::string""'"); 
-    }
-    arg2 = *ptr;
-    if (SWIG_IsNewObj(res)) delete ptr;
-  }
-  (arg1)->set_language_tag(arg2);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_EntityAnn_get_title_case__SWIG_0(PyObject *SWIGUNUSEDPARM(self), Py_ssize_t nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   EntityAnn *arg1 = (EntityAnn *) 0 ;
@@ -7663,6 +7632,60 @@ fail:
     "    EntityAnn::get_title_case(std::string)\n"
     "    EntityAnn::get_title_case()\n");
   return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_EntityAnn_set_language_tag(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  EntityAnn *arg1 = (EntityAnn *) 0 ;
+  std::string arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "EntityAnn_set_language_tag", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EntityAnn, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EntityAnn_set_language_tag" "', argument " "1"" of type '" "EntityAnn *""'"); 
+  }
+  arg1 = reinterpret_cast< EntityAnn * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    int res = SWIG_AsPtr_std_string(swig_obj[1], &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "EntityAnn_set_language_tag" "', argument " "2"" of type '" "std::string""'"); 
+    }
+    arg2 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
+  (arg1)->set_language_tag(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_EntityAnn_get_m(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  EntityAnn *arg1 = (EntityAnn *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  unsigned long result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EntityAnn, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EntityAnn_get_m" "', argument " "1"" of type '" "EntityAnn *""'"); 
+  }
+  arg1 = reinterpret_cast< EntityAnn * >(argp1);
+  result = (unsigned long)(arg1)->get_m();
+  resultobj = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  return resultobj;
+fail:
+  return NULL;
 }
 
 
@@ -8104,6 +8127,58 @@ SWIGINTERN PyObject *_wrap_EntityAnn_m_ambiguitity_penalty_get(PyObject *SWIGUNU
   arg1 = reinterpret_cast< EntityAnn * >(argp1);
   result = (double) ((arg1)->m_ambiguitity_penalty);
   resultobj = SWIG_From_double(static_cast< double >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_EntityAnn_set_sample_size(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  EntityAnn *arg1 = (EntityAnn *) 0 ;
+  long arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  long val2 ;
+  int ecode2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "EntityAnn_set_sample_size", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EntityAnn, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EntityAnn_set_sample_size" "', argument " "1"" of type '" "EntityAnn *""'"); 
+  }
+  arg1 = reinterpret_cast< EntityAnn * >(argp1);
+  ecode2 = SWIG_AsVal_long(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "EntityAnn_set_sample_size" "', argument " "2"" of type '" "long""'");
+  } 
+  arg2 = static_cast< long >(val2);
+  (arg1)->set_sample_size(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_EntityAnn_get_sample_size(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  EntityAnn *arg1 = (EntityAnn *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  long result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EntityAnn, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EntityAnn_get_sample_size" "', argument " "1"" of type '" "EntityAnn *""'"); 
+  }
+  arg1 = reinterpret_cast< EntityAnn * >(argp1);
+  result = (long)(arg1)->get_sample_size();
+  resultobj = SWIG_From_long(static_cast< long >(result));
   return resultobj;
 fail:
   return NULL;
@@ -10202,9 +10277,10 @@ static PyMethodDef SwigMethods[] = {
 	 { "EntityAnn_get_quoted", _wrap_EntityAnn_get_quoted, METH_VARARGS, NULL},
 	 { "EntityAnn_get_taged", _wrap_EntityAnn_get_taged, METH_VARARGS, NULL},
 	 { "EntityAnn_recompute_f", _wrap_EntityAnn_recompute_f, METH_VARARGS, NULL},
-	 { "EntityAnn_set_language_tag", _wrap_EntityAnn_set_language_tag, METH_VARARGS, NULL},
 	 { "EntityAnn_set_title_case", _wrap_EntityAnn_set_title_case, METH_VARARGS, NULL},
 	 { "EntityAnn_get_title_case", _wrap_EntityAnn_get_title_case, METH_VARARGS, NULL},
+	 { "EntityAnn_set_language_tag", _wrap_EntityAnn_set_language_tag, METH_VARARGS, NULL},
+	 { "EntityAnn_get_m", _wrap_EntityAnn_get_m, METH_O, NULL},
 	 { "EntityAnn_annotate_entity_property_column", _wrap_EntityAnn_annotate_entity_property_column, METH_VARARGS, NULL},
 	 { "EntityAnn_annotate_entity_property_pair", _wrap_EntityAnn_annotate_entity_property_pair, METH_VARARGS, NULL},
 	 { "EntityAnn_annotate_entity_property_heuristic", _wrap_EntityAnn_annotate_entity_property_heuristic, METH_VARARGS, NULL},
@@ -10219,6 +10295,8 @@ static PyMethodDef SwigMethods[] = {
 	 { "EntityAnn_delete_hdt_in_destructor_get", _wrap_EntityAnn_delete_hdt_in_destructor_get, METH_O, NULL},
 	 { "EntityAnn_m_ambiguitity_penalty_set", _wrap_EntityAnn_m_ambiguitity_penalty_set, METH_VARARGS, NULL},
 	 { "EntityAnn_m_ambiguitity_penalty_get", _wrap_EntityAnn_m_ambiguitity_penalty_get, METH_O, NULL},
+	 { "EntityAnn_set_sample_size", _wrap_EntityAnn_set_sample_size, METH_VARARGS, NULL},
+	 { "EntityAnn_get_sample_size", _wrap_EntityAnn_get_sample_size, METH_O, NULL},
 	 { "EntityAnn_get_labels_uris", _wrap_EntityAnn_get_labels_uris, METH_O, NULL},
 	 { "EntityAnn_append_label_uri", _wrap_EntityAnn_append_label_uri, METH_VARARGS, NULL},
 	 { "EntityAnn_clear_label_uri", _wrap_EntityAnn_clear_label_uri, METH_O, NULL},

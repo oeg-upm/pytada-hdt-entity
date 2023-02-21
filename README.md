@@ -39,13 +39,16 @@ sh scripts/compile.sh
 
 
 # Install prerequisites via a script
+
+**These are included in** `compile.sh`
+
 * For debian and ubuntu: 
-[install-script](https://github.com/oeg-upm/tada-web/blob/master/setup.sh)
+[install-script](https://github.com/oeg-upm/tada-api/blob/master/setup.sh)
 * For other linux distro and macOS: 
 use the debian script but update it with the equivalent command to install prerequisite packages
 
 # To update the python library (from the updated c++ source code library)
-1. You need to setup the following environment variables:
+1. You need to setup the following environment variables: **You might not need this in the newer versions**
 	* `export project_dir='.'`  (or the directory of the c++ source code)
 	* `export LC_ALL=en_US.UTF-8` (needed for mac)
 	* `export LANG=en_US.UTF-8` (needed for mac)

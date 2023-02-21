@@ -229,14 +229,17 @@ class EntityAnn(object):
     def recompute_f(self, arg2):
         return _entity.EntityAnn_recompute_f(self, arg2)
 
-    def set_language_tag(self, arg2):
-        return _entity.EntityAnn_set_language_tag(self, arg2)
-
     def set_title_case(self, arg2):
         return _entity.EntityAnn_set_title_case(self, arg2)
 
     def get_title_case(self, *args):
         return _entity.EntityAnn_get_title_case(self, *args)
+
+    def set_language_tag(self, tag):
+        return _entity.EntityAnn_set_language_tag(self, tag)
+
+    def get_m(self):
+        return _entity.EntityAnn_get_m(self)
 
     def annotate_entity_property_column(self, arg2, arg3, arg4):
         return _entity.EntityAnn_annotate_entity_property_column(self, arg2, arg3, arg4)
@@ -259,6 +262,12 @@ class EntityAnn(object):
     subclassof_uri = property(_entity.EntityAnn_subclassof_uri_get, _entity.EntityAnn_subclassof_uri_set)
     delete_hdt_in_destructor = property(_entity.EntityAnn_delete_hdt_in_destructor_get, _entity.EntityAnn_delete_hdt_in_destructor_set)
     m_ambiguitity_penalty = property(_entity.EntityAnn_m_ambiguitity_penalty_get, _entity.EntityAnn_m_ambiguitity_penalty_set)
+
+    def set_sample_size(self, sample_size):
+        return _entity.EntityAnn_set_sample_size(self, sample_size)
+
+    def get_sample_size(self):
+        return _entity.EntityAnn_get_sample_size(self)
 
     def get_labels_uris(self):
         return _entity.EntityAnn_get_labels_uris(self)
