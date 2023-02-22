@@ -10,4 +10,5 @@ COPY tada_hdt_entity /app/tada_hdt_entity
 COPY requirements.txt /app/
 COPY tests /app/tests
 COPY scripts /app/scripts/
-RUN sh scripts/start.sh
+#RUN sh scripts/start.sh
+CMD ["sh", "scripts/start.sh"]

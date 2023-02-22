@@ -1,13 +1,19 @@
 # pytada-hdt-entity
+[![Build Status](https://ahmad88me.semaphoreci.com/badges/pytada-hdt-entity/branches/master.svg?style=shields&key=03f53198-0e20-470d-be7d-2ab289e1d436)](https://ahmad88me.semaphoreci.com/projects/pytada-hdt-entity)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3764190.svg)](https://doi.org/10.5281/zenodo.3764190)
 [![Python 3.6](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
 
 
-A python library binding of the c++ library `tada-hdt-entity`
+A python library binding of the c++ library [`tada-hdt-entity`](https://github.com/oeg-upm/tada-hdt-entity)
 
 
-
-# Install via pip
+# Install
+## Prerequisites to install
+1. [hdt-cpp](https://github.com/rdfhdt/hdt-cpp)
+2. [tabular_parser](https://github.com/ahmad88me/tabular-parser)
+3. easy_logger lib
+4. tada_hdt_entity lib
+## Install via pip
 ```
 pip install git+https://github.com/oeg-upm/pytada-hdt-entity.git
 ```
@@ -75,11 +81,7 @@ use the debian script but update it with the equivalent command to install prere
 [//]: # (	* `cp entity.py tada_hdt_entity/`)
 1. Update `setup.py` with the new version of the library	
 
-# Prerequisites to install
-1. HDT lib
-2. tabular_parser lib
-3. easy_logger lib
-4. tada_hdt_entity lib
+
 
 
 # Prerequisites to build (from source)
