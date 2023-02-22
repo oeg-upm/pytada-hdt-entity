@@ -6,4 +6,4 @@ coverage run --source=. --omit=.venv/* -m unittest discover
 coverage report -m
 curl -Os https://uploader.codecov.io/latest/linux/codecov
 chmod +x codecov
-./codecov -t ${CODECOV_TOKEN}
+./codecov
