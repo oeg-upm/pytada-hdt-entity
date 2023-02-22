@@ -12,3 +12,5 @@ blocks:
           commands:
             - checkout
             - 'sh scripts/run_test_in_docker.sh '
+      secrets:
+        - name: pytada-hdt-entity
