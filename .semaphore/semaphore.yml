@@ -11,6 +11,6 @@ blocks:
         - name: docker build
           commands:
             - checkout
-            - 'docker image build -t pytadahdtentity:latest .'
+            - 'sh scripts/run_test_in_docker.sh '
       secrets:
         - name: pytada-hdt-entity
