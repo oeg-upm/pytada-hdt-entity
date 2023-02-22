@@ -1,5 +1,6 @@
 # pytada-hdt-entity
 [![Build Status](https://ahmad88me.semaphoreci.com/badges/pytada-hdt-entity/branches/master.svg?style=shields&key=03f53198-0e20-470d-be7d-2ab289e1d436)](https://ahmad88me.semaphoreci.com/projects/pytada-hdt-entity)
+[![codecov](https://codecov.io/gh/oeg-upm/pytada-hdt-entity/branch/master/graph/badge.svg?token=J3JDO36AWZ)](https://codecov.io/gh/oeg-upm/pytada-hdt-entity)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3764190.svg)](https://doi.org/10.5281/zenodo.3764190)
 [![Python 3.6](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
 
