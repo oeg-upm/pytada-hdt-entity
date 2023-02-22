@@ -1,0 +1,16 @@
+version: v1.0
+name: Docker
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+blocks:
+  - name: Run tests in docker
+    task:
+      jobs:
+        - name: docker build
+          commands:
+            - checkout
+            - 'docker image build -t pytadahdtentity:latest .'
+      secrets:
+        - name: pytada-hdt-entity
