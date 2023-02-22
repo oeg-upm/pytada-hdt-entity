@@ -22,6 +22,7 @@ class TestAll(unittest.TestCase):
         class_uri = "http://dbpedia.org/ontology/Wrestler"
         p = Parser("test_files/test8.csv")
         data = p.parse_vertical()
+        print("hdt_path: %s" % hdt_path)
         ea = EntityAnn(hdt_path, log_file, 0.9)
         ea.set_alpha(0.9)
         ea.set_title_case(False)

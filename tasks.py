@@ -2,11 +2,8 @@ from invoke import task
 import os
 
 
-tada_hdt_entity_dir = os.environ['tada_hdt_entity_dir']
-tabular_parser_dir = os.environ['tabular_parser_dir']
-
-
 def copyc_tada(c):
+    tada_hdt_entity_dir = os.environ['tada_hdt_entity_dir']
     files = ["tnode.cpp", "tnode.h", "graph.cpp", "graph.h", "entity.cpp", "entity.h"]
     for f in files:
         p_dir = "src"
@@ -19,6 +16,7 @@ def copyc_tada(c):
 
 
 def copyc_parser(c):
+    tabular_parser_dir = os.environ['tabular_parser_dir']
     files = ["parser.cpp", "parser.h"]
     for f in files:
         fdir = os.path.join(tabular_parser_dir, f)

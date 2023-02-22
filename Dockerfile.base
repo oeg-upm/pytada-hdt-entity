@@ -1,4 +1,6 @@
 FROM ahmad88me/tadahdtentity:latest
 WORKDIR /app
+RUN echo "Run 1"
 COPY scripts /app/scripts/
-RUN sh scripts/setup.sh
+COPY test_files /app/test_files
+RUN sh scripts/setup-debian.sh
