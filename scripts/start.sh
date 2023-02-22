@@ -3,6 +3,7 @@ python3 setup.py install
 python3 -m unittest discover
 pip3 install coverage
 coverage run --source=. --omit=.venv/* -m unittest discover
-curl -s https://codecov.io/bash > codecovpush.sh
-chmod +x codecovpush.sh
-./codecovpush.sh -t $CODECOV_TOKEN
+coverage report -m
+curl -Os https://uploader.codecov.io/latest/linux/codecov
+chmod +x codecov
+./codecov -t ${CODECOV_TOKEN}
