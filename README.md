@@ -9,11 +9,13 @@ A python library binding of the c++ library [`tada-hdt-entity`](https://github.c
 
 
 # Install
+Not that to install pytada-hdt-entity, you don't need to perform the swig build as this is already done by the authors. All you need is the files in this repository and the depedencies.
+
 ## Prerequisites to install
 1. [hdt-cpp](https://github.com/rdfhdt/hdt-cpp)
 2. [tabular_parser](https://github.com/ahmad88me/tabular-parser)
-3. easy_logger lib
-4. tada_hdt_entity lib
+3. [easy_logger](https://github.com/ahmad88me/easy-logger)
+4. [tada_hdt_entity](https://github.com/oeg-upm/tada-hdt-entity)
 ## Install via pip
 ```
 pip install git+https://github.com/oeg-upm/pytada-hdt-entity.git
