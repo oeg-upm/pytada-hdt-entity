@@ -1,6 +1,7 @@
 apt-get -y install python3-dev
 apt-get -y install python3-pip
 pip3 install -r requirements.txt
+pip3 install coverage
 
 echo "Installing tada-hdt-entity... "
 wget https://github.com/oeg-upm/tada-hdt-entity/archive/v2.0.zip
