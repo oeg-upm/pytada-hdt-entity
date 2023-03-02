@@ -7689,7 +7689,63 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_EntityAnn_annotate_entity_property_column(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_EntityAnn_annotate_property_column_heuristic(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  EntityAnn *arg1 = (EntityAnn *) 0 ;
+  std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > *arg2 = (std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > *) 0 ;
+  long arg3 ;
+  long arg4 ;
+  std::string arg5 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  long val3 ;
+  int ecode3 = 0 ;
+  long val4 ;
+  int ecode4 = 0 ;
+  PyObject *swig_obj[5] ;
+  std::list< std::string,std::allocator< std::string > > *result = 0 ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "EntityAnn_annotate_property_column_heuristic", 5, 5, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EntityAnn, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EntityAnn_annotate_property_column_heuristic" "', argument " "1"" of type '" "EntityAnn *""'"); 
+  }
+  arg1 = reinterpret_cast< EntityAnn * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_std__listT_std__listT_std__string_std__allocatorT_std__string_t_t_p_std__allocatorT_std__listT_std__string_std__allocatorT_std__string_t_t_p_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "EntityAnn_annotate_property_column_heuristic" "', argument " "2"" of type '" "std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > *""'"); 
+  }
+  arg2 = reinterpret_cast< std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > * >(argp2);
+  ecode3 = SWIG_AsVal_long(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "EntityAnn_annotate_property_column_heuristic" "', argument " "3"" of type '" "long""'");
+  } 
+  arg3 = static_cast< long >(val3);
+  ecode4 = SWIG_AsVal_long(swig_obj[3], &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "EntityAnn_annotate_property_column_heuristic" "', argument " "4"" of type '" "long""'");
+  } 
+  arg4 = static_cast< long >(val4);
+  {
+    std::string *ptr = (std::string *)0;
+    int res = SWIG_AsPtr_std_string(swig_obj[4], &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "EntityAnn_annotate_property_column_heuristic" "', argument " "5"" of type '" "std::string""'"); 
+    }
+    arg5 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
+  result = (std::list< std::string,std::allocator< std::string > > *)(arg1)->annotate_property_column_heuristic(arg2,arg3,arg4,arg5);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__listT_std__string_std__allocatorT_std__string_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_EntityAnn_annotate_property_column_restrictive(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   EntityAnn *arg1 = (EntityAnn *) 0 ;
   std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > *arg2 = (std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > *) 0 ;
@@ -7706,28 +7762,28 @@ SWIGINTERN PyObject *_wrap_EntityAnn_annotate_entity_property_column(PyObject *S
   PyObject *swig_obj[4] ;
   std::list< std::string,std::allocator< std::string > > *result = 0 ;
   
-  if (!SWIG_Python_UnpackTuple(args, "EntityAnn_annotate_entity_property_column", 4, 4, swig_obj)) SWIG_fail;
+  if (!SWIG_Python_UnpackTuple(args, "EntityAnn_annotate_property_column_restrictive", 4, 4, swig_obj)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EntityAnn, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EntityAnn_annotate_entity_property_column" "', argument " "1"" of type '" "EntityAnn *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EntityAnn_annotate_property_column_restrictive" "', argument " "1"" of type '" "EntityAnn *""'"); 
   }
   arg1 = reinterpret_cast< EntityAnn * >(argp1);
   res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_std__listT_std__listT_std__string_std__allocatorT_std__string_t_t_p_std__allocatorT_std__listT_std__string_std__allocatorT_std__string_t_t_p_t_t, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "EntityAnn_annotate_entity_property_column" "', argument " "2"" of type '" "std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "EntityAnn_annotate_property_column_restrictive" "', argument " "2"" of type '" "std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > *""'"); 
   }
   arg2 = reinterpret_cast< std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > * >(argp2);
   ecode3 = SWIG_AsVal_long(swig_obj[2], &val3);
   if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "EntityAnn_annotate_entity_property_column" "', argument " "3"" of type '" "long""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "EntityAnn_annotate_property_column_restrictive" "', argument " "3"" of type '" "long""'");
   } 
   arg3 = static_cast< long >(val3);
   ecode4 = SWIG_AsVal_long(swig_obj[3], &val4);
   if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "EntityAnn_annotate_entity_property_column" "', argument " "4"" of type '" "long""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "EntityAnn_annotate_property_column_restrictive" "', argument " "4"" of type '" "long""'");
   } 
   arg4 = static_cast< long >(val4);
-  result = (std::list< std::string,std::allocator< std::string > > *)(arg1)->annotate_entity_property_column(arg2,arg3,arg4);
+  result = (std::list< std::string,std::allocator< std::string > > *)(arg1)->annotate_property_column_restrictive(arg2,arg3,arg4);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__listT_std__string_std__allocatorT_std__string_t_t, 0 |  0 );
   return resultobj;
 fail:
@@ -7743,6 +7799,7 @@ SWIGINTERN PyObject *_wrap_EntityAnn_annotate_entity_property_pair(PyObject *SWI
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[3] ;
+  bool result;
   
   if (!SWIG_Python_UnpackTuple(args, "EntityAnn_annotate_entity_property_pair", 3, 3, swig_obj)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EntityAnn, 0 |  0 );
@@ -7768,15 +7825,57 @@ SWIGINTERN PyObject *_wrap_EntityAnn_annotate_entity_property_pair(PyObject *SWI
     arg3 = *ptr;
     if (SWIG_IsNewObj(res)) delete ptr;
   }
-  (arg1)->annotate_entity_property_pair(arg2,arg3);
-  resultobj = SWIG_Py_Void();
+  result = (bool)(arg1)->annotate_entity_property_pair(arg2,arg3);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_EntityAnn_annotate_entity_property_heuristic(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_EntityAnn_annotate_text_property_pair(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  EntityAnn *arg1 = (EntityAnn *) 0 ;
+  std::string arg2 ;
+  std::string arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[3] ;
+  bool result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "EntityAnn_annotate_text_property_pair", 3, 3, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EntityAnn, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EntityAnn_annotate_text_property_pair" "', argument " "1"" of type '" "EntityAnn *""'"); 
+  }
+  arg1 = reinterpret_cast< EntityAnn * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    int res = SWIG_AsPtr_std_string(swig_obj[1], &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "EntityAnn_annotate_text_property_pair" "', argument " "2"" of type '" "std::string""'"); 
+    }
+    arg2 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    int res = SWIG_AsPtr_std_string(swig_obj[2], &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "EntityAnn_annotate_text_property_pair" "', argument " "3"" of type '" "std::string""'"); 
+    }
+    arg3 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
+  result = (bool)(arg1)->annotate_text_property_pair(arg2,arg3);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_EntityAnn_annotate_entity_property_permissive(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   EntityAnn *arg1 = (EntityAnn *) 0 ;
   std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > *arg2 = (std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > *) 0 ;
@@ -7791,33 +7890,281 @@ SWIGINTERN PyObject *_wrap_EntityAnn_annotate_entity_property_heuristic(PyObject
   PyObject *swig_obj[4] ;
   std::list< std::string,std::allocator< std::string > > *result = 0 ;
   
-  if (!SWIG_Python_UnpackTuple(args, "EntityAnn_annotate_entity_property_heuristic", 4, 4, swig_obj)) SWIG_fail;
+  if (!SWIG_Python_UnpackTuple(args, "EntityAnn_annotate_entity_property_permissive", 4, 4, swig_obj)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EntityAnn, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EntityAnn_annotate_entity_property_heuristic" "', argument " "1"" of type '" "EntityAnn *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EntityAnn_annotate_entity_property_permissive" "', argument " "1"" of type '" "EntityAnn *""'"); 
   }
   arg1 = reinterpret_cast< EntityAnn * >(argp1);
   res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_std__listT_std__listT_std__string_std__allocatorT_std__string_t_t_p_std__allocatorT_std__listT_std__string_std__allocatorT_std__string_t_t_p_t_t, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "EntityAnn_annotate_entity_property_heuristic" "', argument " "2"" of type '" "std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "EntityAnn_annotate_entity_property_permissive" "', argument " "2"" of type '" "std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > *""'"); 
   }
   arg2 = reinterpret_cast< std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > * >(argp2);
   {
     std::string *ptr = (std::string *)0;
     int res = SWIG_AsPtr_std_string(swig_obj[2], &ptr);
     if (!SWIG_IsOK(res) || !ptr) {
-      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "EntityAnn_annotate_entity_property_heuristic" "', argument " "3"" of type '" "std::string""'"); 
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "EntityAnn_annotate_entity_property_permissive" "', argument " "3"" of type '" "std::string""'"); 
     }
     arg3 = *ptr;
     if (SWIG_IsNewObj(res)) delete ptr;
   }
   ecode4 = SWIG_AsVal_long(swig_obj[3], &val4);
   if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "EntityAnn_annotate_entity_property_heuristic" "', argument " "4"" of type '" "long""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "EntityAnn_annotate_entity_property_permissive" "', argument " "4"" of type '" "long""'");
   } 
   arg4 = static_cast< long >(val4);
-  result = (std::list< std::string,std::allocator< std::string > > *)(arg1)->annotate_entity_property_heuristic(arg2,arg3,arg4);
+  result = (std::list< std::string,std::allocator< std::string > > *)(arg1)->annotate_entity_property_permissive(arg2,arg3,arg4);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__listT_std__string_std__allocatorT_std__string_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_EntityAnn_annotate_text_property_permissive(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  EntityAnn *arg1 = (EntityAnn *) 0 ;
+  std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > *arg2 = (std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > *) 0 ;
+  std::string arg3 ;
+  long arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  long val4 ;
+  int ecode4 = 0 ;
+  PyObject *swig_obj[4] ;
+  std::list< std::string,std::allocator< std::string > > *result = 0 ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "EntityAnn_annotate_text_property_permissive", 4, 4, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EntityAnn, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EntityAnn_annotate_text_property_permissive" "', argument " "1"" of type '" "EntityAnn *""'"); 
+  }
+  arg1 = reinterpret_cast< EntityAnn * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_std__listT_std__listT_std__string_std__allocatorT_std__string_t_t_p_std__allocatorT_std__listT_std__string_std__allocatorT_std__string_t_t_p_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "EntityAnn_annotate_text_property_permissive" "', argument " "2"" of type '" "std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > *""'"); 
+  }
+  arg2 = reinterpret_cast< std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > * >(argp2);
+  {
+    std::string *ptr = (std::string *)0;
+    int res = SWIG_AsPtr_std_string(swig_obj[2], &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "EntityAnn_annotate_text_property_permissive" "', argument " "3"" of type '" "std::string""'"); 
+    }
+    arg3 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
+  ecode4 = SWIG_AsVal_long(swig_obj[3], &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "EntityAnn_annotate_text_property_permissive" "', argument " "4"" of type '" "long""'");
+  } 
+  arg4 = static_cast< long >(val4);
+  result = (std::list< std::string,std::allocator< std::string > > *)(arg1)->annotate_text_property_permissive(arg2,arg3,arg4);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__listT_std__string_std__allocatorT_std__string_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_EntityAnn_text_property_permissive_intermediate(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  EntityAnn *arg1 = (EntityAnn *) 0 ;
+  std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > *arg2 = (std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > *) 0 ;
+  std::list< std::string,std::allocator< std::string > > *arg3 = (std::list< std::string,std::allocator< std::string > > *) 0 ;
+  long arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  long val4 ;
+  int ecode4 = 0 ;
+  PyObject *swig_obj[4] ;
+  std::list< std::string,std::allocator< std::string > > *result = 0 ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "EntityAnn_text_property_permissive_intermediate", 4, 4, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EntityAnn, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EntityAnn_text_property_permissive_intermediate" "', argument " "1"" of type '" "EntityAnn *""'"); 
+  }
+  arg1 = reinterpret_cast< EntityAnn * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_std__listT_std__listT_std__string_std__allocatorT_std__string_t_t_p_std__allocatorT_std__listT_std__string_std__allocatorT_std__string_t_t_p_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "EntityAnn_text_property_permissive_intermediate" "', argument " "2"" of type '" "std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > *""'"); 
+  }
+  arg2 = reinterpret_cast< std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > * >(argp2);
+  res3 = SWIG_ConvertPtr(swig_obj[2], &argp3,SWIGTYPE_p_std__listT_std__string_std__allocatorT_std__string_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "EntityAnn_text_property_permissive_intermediate" "', argument " "3"" of type '" "std::list< std::string,std::allocator< std::string > > *""'"); 
+  }
+  arg3 = reinterpret_cast< std::list< std::string,std::allocator< std::string > > * >(argp3);
+  ecode4 = SWIG_AsVal_long(swig_obj[3], &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "EntityAnn_text_property_permissive_intermediate" "', argument " "4"" of type '" "long""'");
+  } 
+  arg4 = static_cast< long >(val4);
+  result = (std::list< std::string,std::allocator< std::string > > *)(arg1)->text_property_permissive_intermediate(arg2,arg3,arg4);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__listT_std__string_std__allocatorT_std__string_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_EntityAnn_entity_property_permissive_intermediate(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  EntityAnn *arg1 = (EntityAnn *) 0 ;
+  std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > *arg2 = (std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > *) 0 ;
+  std::list< std::string,std::allocator< std::string > > *arg3 = (std::list< std::string,std::allocator< std::string > > *) 0 ;
+  long arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  long val4 ;
+  int ecode4 = 0 ;
+  PyObject *swig_obj[4] ;
+  std::list< std::string,std::allocator< std::string > > *result = 0 ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "EntityAnn_entity_property_permissive_intermediate", 4, 4, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EntityAnn, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EntityAnn_entity_property_permissive_intermediate" "', argument " "1"" of type '" "EntityAnn *""'"); 
+  }
+  arg1 = reinterpret_cast< EntityAnn * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_std__listT_std__listT_std__string_std__allocatorT_std__string_t_t_p_std__allocatorT_std__listT_std__string_std__allocatorT_std__string_t_t_p_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "EntityAnn_entity_property_permissive_intermediate" "', argument " "2"" of type '" "std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > *""'"); 
+  }
+  arg2 = reinterpret_cast< std::list< std::list< std::string,std::allocator< std::string > > *,std::allocator< std::list< std::string,std::allocator< std::string > > * > > * >(argp2);
+  res3 = SWIG_ConvertPtr(swig_obj[2], &argp3,SWIGTYPE_p_std__listT_std__string_std__allocatorT_std__string_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "EntityAnn_entity_property_permissive_intermediate" "', argument " "3"" of type '" "std::list< std::string,std::allocator< std::string > > *""'"); 
+  }
+  arg3 = reinterpret_cast< std::list< std::string,std::allocator< std::string > > * >(argp3);
+  ecode4 = SWIG_AsVal_long(swig_obj[3], &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "EntityAnn_entity_property_permissive_intermediate" "', argument " "4"" of type '" "long""'");
+  } 
+  arg4 = static_cast< long >(val4);
+  result = (std::list< std::string,std::allocator< std::string > > *)(arg1)->entity_property_permissive_intermediate(arg2,arg3,arg4);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__listT_std__string_std__allocatorT_std__string_t_t, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_EntityAnn_search_and_append_relations_with_entities(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  EntityAnn *arg1 = (EntityAnn *) 0 ;
+  std::list< std::string,std::allocator< std::string > > *arg2 = (std::list< std::string,std::allocator< std::string > > *) 0 ;
+  std::list< std::string,std::allocator< std::string > > *arg3 = (std::list< std::string,std::allocator< std::string > > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject *swig_obj[3] ;
+  unsigned long result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "EntityAnn_search_and_append_relations_with_entities", 3, 3, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EntityAnn, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EntityAnn_search_and_append_relations_with_entities" "', argument " "1"" of type '" "EntityAnn *""'"); 
+  }
+  arg1 = reinterpret_cast< EntityAnn * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_std__listT_std__string_std__allocatorT_std__string_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "EntityAnn_search_and_append_relations_with_entities" "', argument " "2"" of type '" "std::list< std::string,std::allocator< std::string > > *""'"); 
+  }
+  arg2 = reinterpret_cast< std::list< std::string,std::allocator< std::string > > * >(argp2);
+  res3 = SWIG_ConvertPtr(swig_obj[2], &argp3,SWIGTYPE_p_std__listT_std__string_std__allocatorT_std__string_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "EntityAnn_search_and_append_relations_with_entities" "', argument " "3"" of type '" "std::list< std::string,std::allocator< std::string > > *""'"); 
+  }
+  arg3 = reinterpret_cast< std::list< std::string,std::allocator< std::string > > * >(argp3);
+  result = (unsigned long)(arg1)->search_and_append_relations_with_entities(arg2,arg3);
+  resultobj = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_EntityAnn_search_and_append_relations_with_objects(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  EntityAnn *arg1 = (EntityAnn *) 0 ;
+  std::list< std::string,std::allocator< std::string > > *arg2 = (std::list< std::string,std::allocator< std::string > > *) 0 ;
+  std::list< std::string,std::allocator< std::string > > *arg3 = (std::list< std::string,std::allocator< std::string > > *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject *swig_obj[3] ;
+  unsigned long result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "EntityAnn_search_and_append_relations_with_objects", 3, 3, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EntityAnn, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EntityAnn_search_and_append_relations_with_objects" "', argument " "1"" of type '" "EntityAnn *""'"); 
+  }
+  arg1 = reinterpret_cast< EntityAnn * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_std__listT_std__string_std__allocatorT_std__string_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "EntityAnn_search_and_append_relations_with_objects" "', argument " "2"" of type '" "std::list< std::string,std::allocator< std::string > > *""'"); 
+  }
+  arg2 = reinterpret_cast< std::list< std::string,std::allocator< std::string > > * >(argp2);
+  res3 = SWIG_ConvertPtr(swig_obj[2], &argp3,SWIGTYPE_p_std__listT_std__string_std__allocatorT_std__string_t_t, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "EntityAnn_search_and_append_relations_with_objects" "', argument " "3"" of type '" "std::list< std::string,std::allocator< std::string > > *""'"); 
+  }
+  arg3 = reinterpret_cast< std::list< std::string,std::allocator< std::string > > * >(argp3);
+  result = (unsigned long)(arg1)->search_and_append_relations_with_objects(arg2,arg3);
+  resultobj = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_EntityAnn_add_property_count(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  EntityAnn *arg1 = (EntityAnn *) 0 ;
+  std::string arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[2] ;
+  bool result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "EntityAnn_add_property_count", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EntityAnn, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EntityAnn_add_property_count" "', argument " "1"" of type '" "EntityAnn *""'"); 
+  }
+  arg1 = reinterpret_cast< EntityAnn * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    int res = SWIG_AsPtr_std_string(swig_obj[1], &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "EntityAnn_add_property_count" "', argument " "2"" of type '" "std::string""'"); 
+    }
+    arg2 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
+  result = (bool)(arg1)->add_property_count(arg2);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
   return resultobj;
 fail:
   return NULL;
@@ -8289,6 +8636,29 @@ SWIGINTERN PyObject *_wrap_EntityAnn_file_exists(PyObject *SWIGUNUSEDPARM(self),
   return resultobj;
 fail:
   if (SWIG_IsNewObj(res1)) delete arg1;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_EntityAnn_get_num_annotated_property_cells(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  EntityAnn *arg1 = (EntityAnn *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  unsigned long result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_EntityAnn, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EntityAnn_get_num_annotated_property_cells" "', argument " "1"" of type '" "EntityAnn *""'"); 
+  }
+  arg1 = reinterpret_cast< EntityAnn * >(argp1);
+  result = (unsigned long)(arg1)->get_num_annotated_property_cells();
+  resultobj = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  return resultobj;
+fail:
   return NULL;
 }
 
@@ -10281,9 +10651,17 @@ static PyMethodDef SwigMethods[] = {
 	 { "EntityAnn_get_title_case", _wrap_EntityAnn_get_title_case, METH_VARARGS, NULL},
 	 { "EntityAnn_set_language_tag", _wrap_EntityAnn_set_language_tag, METH_VARARGS, NULL},
 	 { "EntityAnn_get_m", _wrap_EntityAnn_get_m, METH_O, NULL},
-	 { "EntityAnn_annotate_entity_property_column", _wrap_EntityAnn_annotate_entity_property_column, METH_VARARGS, NULL},
+	 { "EntityAnn_annotate_property_column_heuristic", _wrap_EntityAnn_annotate_property_column_heuristic, METH_VARARGS, NULL},
+	 { "EntityAnn_annotate_property_column_restrictive", _wrap_EntityAnn_annotate_property_column_restrictive, METH_VARARGS, NULL},
 	 { "EntityAnn_annotate_entity_property_pair", _wrap_EntityAnn_annotate_entity_property_pair, METH_VARARGS, NULL},
-	 { "EntityAnn_annotate_entity_property_heuristic", _wrap_EntityAnn_annotate_entity_property_heuristic, METH_VARARGS, NULL},
+	 { "EntityAnn_annotate_text_property_pair", _wrap_EntityAnn_annotate_text_property_pair, METH_VARARGS, NULL},
+	 { "EntityAnn_annotate_entity_property_permissive", _wrap_EntityAnn_annotate_entity_property_permissive, METH_VARARGS, NULL},
+	 { "EntityAnn_annotate_text_property_permissive", _wrap_EntityAnn_annotate_text_property_permissive, METH_VARARGS, NULL},
+	 { "EntityAnn_text_property_permissive_intermediate", _wrap_EntityAnn_text_property_permissive_intermediate, METH_VARARGS, NULL},
+	 { "EntityAnn_entity_property_permissive_intermediate", _wrap_EntityAnn_entity_property_permissive_intermediate, METH_VARARGS, NULL},
+	 { "EntityAnn_search_and_append_relations_with_entities", _wrap_EntityAnn_search_and_append_relations_with_entities, METH_VARARGS, NULL},
+	 { "EntityAnn_search_and_append_relations_with_objects", _wrap_EntityAnn_search_and_append_relations_with_objects, METH_VARARGS, NULL},
+	 { "EntityAnn_add_property_count", _wrap_EntityAnn_add_property_count, METH_VARARGS, NULL},
 	 { "EntityAnn_get_entities_of_class", _wrap_EntityAnn_get_entities_of_class, METH_VARARGS, NULL},
 	 { "EntityAnn_get_properties_from_map", _wrap_EntityAnn_get_properties_from_map, METH_O, NULL},
 	 { "EntityAnn_get_counts_of_class", _wrap_EntityAnn_get_counts_of_class, METH_VARARGS, NULL},
@@ -10301,6 +10679,7 @@ static PyMethodDef SwigMethods[] = {
 	 { "EntityAnn_append_label_uri", _wrap_EntityAnn_append_label_uri, METH_VARARGS, NULL},
 	 { "EntityAnn_clear_label_uri", _wrap_EntityAnn_clear_label_uri, METH_O, NULL},
 	 { "EntityAnn_file_exists", _wrap_EntityAnn_file_exists, METH_O, NULL},
+	 { "EntityAnn_get_num_annotated_property_cells", _wrap_EntityAnn_get_num_annotated_property_cells, METH_O, NULL},
 	 { "EntityAnn_swigregister", EntityAnn_swigregister, METH_O, NULL},
 	 { "EntityAnn_swiginit", EntityAnn_swiginit, METH_VARARGS, NULL},
 	 { "abc", _wrap_abc, METH_NOARGS, NULL},

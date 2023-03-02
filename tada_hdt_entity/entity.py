@@ -241,14 +241,38 @@ class EntityAnn(object):
     def get_m(self):
         return _entity.EntityAnn_get_m(self)
 
-    def annotate_entity_property_column(self, arg2, arg3, arg4):
-        return _entity.EntityAnn_annotate_entity_property_column(self, arg2, arg3, arg4)
+    def annotate_property_column_heuristic(self, data, subject_idx, property_idx, class_uri):
+        return _entity.EntityAnn_annotate_property_column_heuristic(self, data, subject_idx, property_idx, class_uri)
+
+    def annotate_property_column_restrictive(self, data, subject_idx, property_idx):
+        return _entity.EntityAnn_annotate_property_column_restrictive(self, data, subject_idx, property_idx)
 
     def annotate_entity_property_pair(self, arg2, arg3):
         return _entity.EntityAnn_annotate_entity_property_pair(self, arg2, arg3)
 
-    def annotate_entity_property_heuristic(self, arg2, arg3, arg4):
-        return _entity.EntityAnn_annotate_entity_property_heuristic(self, arg2, arg3, arg4)
+    def annotate_text_property_pair(self, arg2, arg3):
+        return _entity.EntityAnn_annotate_text_property_pair(self, arg2, arg3)
+
+    def annotate_entity_property_permissive(self, data, class_uri, property_idx):
+        return _entity.EntityAnn_annotate_entity_property_permissive(self, data, class_uri, property_idx)
+
+    def annotate_text_property_permissive(self, data, class_uri, property_idx):
+        return _entity.EntityAnn_annotate_text_property_permissive(self, data, class_uri, property_idx)
+
+    def text_property_permissive_intermediate(self, data, subjects, property_idx):
+        return _entity.EntityAnn_text_property_permissive_intermediate(self, data, subjects, property_idx)
+
+    def entity_property_permissive_intermediate(self, data, subjects, property_idx):
+        return _entity.EntityAnn_entity_property_permissive_intermediate(self, data, subjects, property_idx)
+
+    def search_and_append_relations_with_entities(self, subjects, entities):
+        return _entity.EntityAnn_search_and_append_relations_with_entities(self, subjects, entities)
+
+    def search_and_append_relations_with_objects(self, subjects, entities):
+        return _entity.EntityAnn_search_and_append_relations_with_objects(self, subjects, entities)
+
+    def add_property_count(self, property_uri):
+        return _entity.EntityAnn_add_property_count(self, property_uri)
 
     def get_entities_of_class(self, arg2):
         return _entity.EntityAnn_get_entities_of_class(self, arg2)
@@ -281,6 +305,9 @@ class EntityAnn(object):
     @staticmethod
     def file_exists(name):
         return _entity.EntityAnn_file_exists(name)
+
+    def get_num_annotated_property_cells(self):
+        return _entity.EntityAnn_get_num_annotated_property_cells(self)
 
 # Register EntityAnn in _entity:
 _entity.EntityAnn_swigregister(EntityAnn)

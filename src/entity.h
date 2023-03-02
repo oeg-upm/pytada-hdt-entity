@@ -15,7 +15,6 @@
 #include <easy_logger/easy_logger.h>
 #include <HDTManager.hpp>
 
-
 using namespace std;
 //using namespace hdt;
 
@@ -36,9 +35,48 @@ class EntityAnn {
   void setHDT(string);
   hdt::HDT *getHDT();
   void setLogger(string);
+  /**
+   * Annotate the entity column.
+   *
+   *
+   * To annotate the entity column (using the given idx).
+   *
+   *
+   * @param data the tabular data read using the parser.
+   * @param idx the index of the entity column to be parsed
+   *
+   */
   std::list<string> *annotate_column(std::list<std::list<string>*> *data, unsigned idx);
+  /**
+   * Annotate the entity column.
+   *
+   *
+   * To annotate the entity column (using the given idx).
+   *
+   *
+   * @param data the tabular data read using the parser.
+   * @param idx the index of the entity column to be parsed
+   * @param alpha the alpha value which balances coverage and specificity
+   *
+   */
   std::list<string> *annotate_column(std::list<std::list<string>*> *data, unsigned idx, double alpha);
-  std::list<string> *annotate_column(std::list<std::list<string>*> *data, unsigned idx, bool, bool);
+  /**
+   * Annotate the entity column.
+   *
+   *
+   * To annotate the entity column (using the given idx).
+   *
+   *
+   * @param data the tabular data read using the parser.
+   * @param idx the index of the entity column to be parsed.
+   * @param user_context whether to use the context (the other properties) for the entity linking phase.
+   * For example Messi and Barcelona. It will look for the entity that has the label Messi and the value Barcelona.
+   * @param double_levels is user_context is true, it will also include the case: entity --(relation)--> entity.
+   * Using the same example, it will look for the entity with the label Messi that has a relation with another entity
+   * that has the label Barcelona.
+   */
+  std::list<string> *annotate_column(std::list<std::list<string>*> *data, unsigned idx, bool use_context,
+                                     bool double_levels);
   //        std::list<string>* annotate_column(std::list<std::list<string>*>* data, unsigned idx, double alpha, bool);
   std::list<string> *annotate_semi_scored_column(unsigned long m, double alpha);
   std::list<string> *annotate_semi_scored_column(unsigned long m);
@@ -81,10 +119,92 @@ class EntityAnn {
   bool get_title_case();
   void set_language_tag(string tag);
   unsigned long get_m();
-
-  std::list<string> *annotate_entity_property_column(std::list<std::list<string>*> *, long, long);
-  void annotate_entity_property_pair(string, string);
-  std::list<string> *annotate_entity_property_heuristic(std::list<std::list<string>*> *, string, long);
+  /**
+   * Annotate a property column using heuristics.
+   *
+   * To annotate the property column by first detecting the relations between the subject column
+   *  and the property column. If no enough relations are detected, the permissive technique will be used.
+   *
+   *
+   * @param data the tabular data read using the parser.
+   * @param subject_idx the index of the subject column.
+   * @param property_idx the index of the property column to be indexed.
+   *
+   */
+  std::list<string> *annotate_property_column_heuristic(std::list<std::list<string>*> *data, long subject_idx,
+      long property_idx, string class_uri);
+  /**
+   * Annotate a property column by detecting the relation between subject column and the property column.
+   *
+   * To annotate the property column by detection the relation between the subject column and the property column.
+   *
+   *
+   * @param data the tabular data read using the parser.
+   * @param subject_idx the index of the subject column.
+   * @param property_idx the index of the property column to be indexed.
+   *
+   */
+  std::list<string> *annotate_property_column_restrictive(std::list<std::list<string>*> *data, long subject_idx,
+      long property_idx);
+  bool annotate_entity_property_pair(string, string);
+  bool annotate_text_property_pair(string, string);
+  /**
+   * Annotate a property column of entities using an extensive bruteforce.
+   *
+   * It attempts to annotate the property column using all the subjects from the provided class with the entities from
+   * the property column.
+   *
+   *
+   * @param data the tabular data read using the parser.
+   * @param class_uri the class of the subject column.
+   * @param property_idx the index of the property column to be indexed.
+   *
+   */
+  std::list<string> *annotate_entity_property_permissive(std::list<std::list<string>*> *data, string class_uri,
+      long property_idx);
+  /**
+   * Annotate a textual property column (not an entity column) using an extensive bruteforce.
+   *
+   * It attempts to annotate the property column using all the subjects from the provided class with the texts from
+   * the property column.
+   *
+   *
+   * @param data the tabular data read using the parser.
+   * @param class_uri the class of the subject column.
+   * @param property_idx the index of the property column to be indexed.
+   *
+   */
+  std::list<string> *annotate_text_property_permissive(std::list<std::list<string>*> *data, string class_uri,
+      long property_idx);
+  std::list<string> *text_property_permissive_intermediate(std::list<std::list<string>*> *data,
+      std::list<string>  *subjects, long property_idx);
+  std::list<string> *entity_property_permissive_intermediate(std::list<std::list<string>*> *data,
+      std::list<string> *subjects, long property_idx);
+  /**
+   * Extract relations between subjects and entities using bruteforce.
+   *
+   * Given a list of strings, subjects and entities, it will search for all possible relations
+   * using all combinations.
+   *
+   *
+   * @param subjects a list of subject uris.
+   * @param entities list of entity uris.
+   *
+   */
+  unsigned long search_and_append_relations_with_entities(std::list<string> *subjects, std::list<string> *entities);
+  /**
+   * Extract relations between subjects and objects using bruteforce.
+   *
+   * Given a list of strings, subjects and objects, it will search for all possible relations
+   * using all combinations.
+   *
+   *
+   * @param subjects a list of subject uris.
+   * @param objects list of objects uris.
+   *
+   */
+  unsigned long search_and_append_relations_with_objects(std::list<string> *subjects, std::list<string> *entities);
+  bool add_property_count(string property_uri);
   std::list<string> *get_entities_of_class(string);
   std::list<string> *get_properties_from_map();
   unsigned long get_counts_of_class(string);
@@ -110,6 +230,7 @@ class EntityAnn {
     return (stat(name.c_str(), &buffer) == 0);
   }
 
+  unsigned long get_num_annotated_property_cells();
  private:
   EasyLogger *m_logger;
   hdt::HDT *m_hdt;
@@ -126,6 +247,7 @@ class EntityAnn {
   //        bool m_propagate_Is=true; // should the parents also include the Is of their childred (true=yes)
   double m_alpha;
   unsigned long m_m;
+  unsigned long m_annotated_prop_cells;
   bool m_retry_with_title_case = false;
   string m_lang_tag;
   long m_sample_size = 0;

@@ -28,7 +28,6 @@ parser_module = Extension('_parser',
                           extra_compile_args=['-std=c++11'],
                           sources=['src/parser.cpp', 'src/parser_wrap.cxx'])
 
-
 modules = [
     parser_module,
     tnode_module,
@@ -37,7 +36,7 @@ modules = [
 ]
 
 setup(name='tada_hdt_entity',
-      version='2.0',
+      version='2.0.0',
       description='This package is a wrapper of tada-hdt-entity',
       author='Ahmad Alobaid',
       author_email='aalobaid@fi.upm.es',
